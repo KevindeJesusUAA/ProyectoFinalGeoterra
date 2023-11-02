@@ -32,6 +32,10 @@
             android:name=".paisMundo"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".memorama"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
