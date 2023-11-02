@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -29,6 +30,31 @@
         <!-- Actividad de la clase paisMundo -->
         <activity
             android:name=".paisMundo"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase temas -->
+        <activity
+            android:name=".temas"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase opciones -->
+        <activity
+            android:name=".opciones"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".registro"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".explora"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".memorama"
             android:exported="true">
         </activity>
     </application>

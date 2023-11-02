@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/txtExplora"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:text="EXPLORA CONMIGO"
+        android:textAlignment="center"
+        android:textColor="#020242"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtTitResul"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:text="MARAVILLAS DEL MUNDO"
+        android:textAlignment="center"
+        android:textColor="#020242"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="554dp" />
+
+
+</LinearLayout>
+

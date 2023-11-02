@@ -15,7 +15,9 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 public class menu extends AppCompatActivity {
     private Button btnRegresar; //Declaramos un botón para regresar a la actividad principal
-    private ImageButton btnPaises;
+    private ImageButton btnMapas, btnContinentes, btnPaises, btnMaravillas;
+
+    private String parametro;
 
     //En el método onCreate creamos la actividad y se configura
     @Override
@@ -25,9 +27,6 @@ public class menu extends AppCompatActivity {
         // estén disponibles
 
         btnRegresar = findViewById(R.id.btnRegresar); // Obtenemos una referencia al elemento del botón de la interfaz de usuario llamado "btnRegresar"
-
-        Bundle recibeIngreso = getIntent().getExtras(); //Vamos a recibir los datos del ingreso, obteniendo el intento y llamamos al método de getExtras
-        // para obtener un objeto Bundle que contiene los datos
 
         //Cuando se seleccione el boton de regresar, se ejecuta el código contenido dentro del método onClick
         btnRegresar.setOnClickListener(new View.OnClickListener() {
@@ -46,14 +45,97 @@ public class menu extends AppCompatActivity {
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(animatedImageView);
 
+        btnMapas = findViewById(R.id.button3);
+
+        btnMapas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                parametro.putString("parametro", "mapas");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+
+        btnContinentes = findViewById(R.id.button4);
+
+        btnContinentes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                parametro.putString("parametro", "continentes");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+
         btnPaises = findViewById(R.id.button5);
 
         btnPaises.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
+
+                Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, paisMundo.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(menu.this, memorama.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
+
+            }
+        });
+
+        btnMaravillas = findViewById(R.id.button6);
+
+        btnMaravillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+        btnMaravillas = findViewById(R.id.button6);
+
+        btnMaravillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
             }
         });
     }
