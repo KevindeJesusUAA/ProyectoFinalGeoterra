@@ -22,7 +22,6 @@
             </intent-filter>
         </activity>
 
-        <!-- Actividad de la clase menu -->
         <activity
             android:name=".menu"
             android:exported="true">
@@ -33,5 +32,4 @@
             android:exported="true">
         </activity>
     </application>
-
 </manifest>
