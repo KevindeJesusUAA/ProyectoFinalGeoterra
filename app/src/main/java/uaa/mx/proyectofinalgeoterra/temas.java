@@ -43,12 +43,21 @@ public class temas extends AppCompatActivity {
 
     }
     public void inicializa(){
-        if(para.equals("pais")){
+        if(para.equals("mapas")){
             cadena="(TI,Título:) (TE,Dice qué tipo de información contiene el mapa o el lugar que se representa.\n" +
                     "El título de este mapa es: “Carreteras y principales ciudades de México”.\n" +
                     "Rosa de los vientos: Es el símbolo que señala los cuatro puntos cardinales; Norte,\n" +
                     "Sur, Este y Oeste. En los mapas, la rosa de los vientos siempre orientará\n" +
                     "geográficamente señalando el norte hacia arriba. )(IM,https://i0.wp.com/alpoma.net/carto/wp-content/uploads/2019/07/An_Animated_Map_of_the_Earth.gif?ssl=1)";
+            longitud=cadena.length();
+            muestra();
+        }
+        if(para.equals("continentes")){
+            cadena="(TI,Título:) (TE,1. ASIA\n" +
+                    "2. AMÉRICA\n" +
+                    "3. ÁFRICA\n" +
+                    "4. ANTÁRTIDA\n" +
+                    "5. EUROPA )(IM,https://1.bp.blogspot.com/-9Fcfflux1n8/X6J9mXHatVI/AAAAAAAATe8/VnjnhxUe3MIBwCgY2xGwulmXUAjSXlLUACLcBGAsYHQ/s16000/Planisferio-Colores-85891.gif)";
             longitud=cadena.length();
             muestra();
         }
@@ -93,8 +102,8 @@ public class temas extends AppCompatActivity {
                 ImageView imageView = new ImageView(this);
 
                 // Definir el ancho y alto del ImageView
-                int widthPixels = 300; // Ancho en píxeles
-                int heightPixels = 400; // Alto en píxeles
+                int widthPixels = 600; // Ancho en píxeles
+                int heightPixels = 600; // Alto en píxeles
 
                 // Asignar las dimensiones al ImageView
                 imageView.setLayoutParams(new LinearLayout.LayoutParams(widthPixels, heightPixels));

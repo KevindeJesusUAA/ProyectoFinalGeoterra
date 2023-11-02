@@ -38,6 +38,21 @@
             android:name=".temas"
             android:exported="true">
         </activity>
+        <!-- Actividad de la clase opciones -->
+        <activity
+            android:name=".opciones"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".registro"
+            android:exported="true">
+        </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".explora"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>

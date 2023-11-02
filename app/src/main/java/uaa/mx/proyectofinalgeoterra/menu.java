@@ -15,7 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 public class menu extends AppCompatActivity {
     private Button btnRegresar; //Declaramos un botón para regresar a la actividad principal
-    private ImageButton btnPaises;
+    private ImageButton btnMapas, btnContinentes, btnPaises, btnMaravillas;
 
     private String parametro;
 
@@ -45,14 +45,33 @@ public class menu extends AppCompatActivity {
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(animatedImageView);
 
-        btnPaises = findViewById(R.id.button5);
+        btnMapas = findViewById(R.id.button3);
 
-        btnPaises.setOnClickListener(new View.OnClickListener() {
+        btnMapas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                parametro.putString("parametro", "mapas");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+
+        btnContinentes = findViewById(R.id.button4);
+
+        btnContinentes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                parametro.putString("parametro", "continentes");//Vamos a asignar el tipo de dato que queremos compartir,
                 // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
                 // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
 
@@ -78,6 +97,25 @@ public class menu extends AppCompatActivity {
                 // Inicia la nueva actividad cuando se hace clic en el botón
                 Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
                 intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+
+        btnMaravillas = findViewById(R.id.button6);
+
+        btnMaravillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
 
             }

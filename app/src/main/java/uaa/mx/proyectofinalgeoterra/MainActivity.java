@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(MainActivity.this, menu.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(MainActivity.this, opciones.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
                 startActivity(intent);
             }
         });
