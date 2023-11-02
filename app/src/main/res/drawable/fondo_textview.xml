@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:left="20dp" android:right="20dp" >
+        <shape android:shape="rectangle">
+            <solid android:color="#FF99FF" /> <!-- Color de fondo -->
+            <corners android:radius="10dp" /> <!-- Radio de las esquinas, ajusta según desees -->
+        </shape>
+    </item>
+    <item android:left="10dp" android:right="10dp">
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/transparent" /> <!-- Borde transparente -->
+        </shape>
+    </item>
+</layer-list>

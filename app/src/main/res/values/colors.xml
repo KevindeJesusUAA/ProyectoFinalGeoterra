@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!--Se colocan tres colores para usarlos en el fondo de la aplicación-->
+    <color name="colorUno">#86FB88</color>
+    <color name="colorDos">#63FFFA</color>
+    <color name="colorTres">#46C6FF</color>
+</resources>
