@@ -95,13 +95,31 @@ public class menu extends AppCompatActivity {
                 // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(menu.this, memorama.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
                 intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
 
             }
         });
 
+        btnMaravillas = findViewById(R.id.button6);
+
+        btnMaravillas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
         btnMaravillas = findViewById(R.id.button6);
 
         btnMaravillas.setOnClickListener(new View.OnClickListener() {
