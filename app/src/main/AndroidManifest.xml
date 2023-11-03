@@ -53,6 +53,11 @@
             android:name=".explora"
             android:exported="true">
         </activity>
+        <!-- Actividad de la clase registro -->
+        <activity
+            android:name=".memorama"
+            android:exported="true">
+        </activity>
     </application>
 
 </manifest>
