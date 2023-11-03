@@ -34,7 +34,7 @@ public class opciones extends AppCompatActivity {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(opciones.this, menu.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(opciones.this, menu.class);
                 startActivity(intent);
             }
         });
@@ -45,7 +45,7 @@ public class opciones extends AppCompatActivity {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(opciones.this, registro.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(opciones.this, registro.class);
                 startActivity(intent);
             }
         });
