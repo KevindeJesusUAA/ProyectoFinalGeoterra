@@ -41,7 +41,7 @@ public class menu extends AppCompatActivity {
         // Carga y muestra el GIF animado en el ImageView
         Glide.with(this)
                 .asGif()
-                .load(R.drawable.paises) // Reemplaza 'tu_gif_animado' con el nombre de tu GIF
+                .load(R.drawable.paises)
                 .transition(DrawableTransitionOptions.withCrossFade())
                 .into(animatedImageView);
 
@@ -53,12 +53,12 @@ public class menu extends AppCompatActivity {
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
                 parametro.putString("parametro", "mapas");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
-                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
+                // y por último, agregamos el texto que queremos compartir
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
-                intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                Intent intent = new Intent(menu.this, temas.class);
+                intent.putExtras(parametro); //Ahora vamos a agregar el parametro, al objeto intent
                 startActivity(intent);
 
             }
@@ -72,11 +72,11 @@ public class menu extends AppCompatActivity {
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
                 parametro.putString("parametro", "continentes");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
-                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
+                // y por último, agregamos el texto que queremos compartir
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, temas.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(menu.this, temas.class);
                 intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
 
@@ -91,7 +91,7 @@ public class menu extends AppCompatActivity {
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
                 parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
                 // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
@@ -110,33 +110,16 @@ public class menu extends AppCompatActivity {
 
                 //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
                 //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
-                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
+                // y por último, agregamos el texto que queremos comparti
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
+                Intent intent = new Intent(menu.this, explora.class);
                 //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
 
             }
         });
-        btnMaravillas = findViewById(R.id.button6);
-
-        btnMaravillas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { //Declaramos el método onClick
-
-                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad en este caso se llama ingreso
-                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
-
-                // Inicia la nueva actividad cuando se hace clic en el botón
-                Intent intent = new Intent(menu.this, explora.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
-                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
-                startActivity(intent);
-
-            }
-        });
+        
     }
 }
