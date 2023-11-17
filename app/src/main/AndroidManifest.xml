@@ -62,6 +62,14 @@
             android:name=".evaluacion"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".estadosMexico"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".resultados"
+            android:exported="true">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />

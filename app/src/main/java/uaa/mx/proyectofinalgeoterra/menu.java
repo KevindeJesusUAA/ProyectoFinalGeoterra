@@ -15,7 +15,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 
 public class menu extends AppCompatActivity {
     private Button btnRegresar; //Declaramos un botón para regresar a la actividad principal
-    private ImageButton btnMapas, btnContinentes, btnPaises, btnMaravillas;
+    private ImageButton btnMapas, btnContinentes, btnPaises, btnMaravillas, btnEstados;
 
     private String parametro;
 
@@ -115,6 +115,25 @@ public class menu extends AppCompatActivity {
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
                 Intent intent = new Intent(menu.this, explora.class);
+                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                startActivity(intent);
+
+            }
+        });
+
+        btnEstados = findViewById(R.id.button7);
+
+        btnEstados.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { //Declaramos el método onClick
+
+                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
+                // y por último, agregamos el texto que queremos comparti
+
+                // Inicia la nueva actividad cuando se hace clic en el botón
+                Intent intent = new Intent(menu.this, estadosMexico.class);
                 //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
                 startActivity(intent);
 

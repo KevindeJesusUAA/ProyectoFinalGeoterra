@@ -47,4 +47,5 @@ dependencies {
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation ("com.google.android.gms:play-services-maps:18.1.0")
+    implementation ("com.squareup.picasso:picasso:2.8")
 }

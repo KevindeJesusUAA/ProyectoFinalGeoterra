@@ -2,6 +2,7 @@ package uaa.mx.proyectofinalgeoterra;
 
 import android.content.Intent;
 import android.location.Location;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -52,10 +53,21 @@ public class explora extends AppCompatActivity implements OnMapReadyCallback {
     private CustomScrollView customScrollView;
     private Button btnEvaluacion;
 
+    private MediaPlayer mediaPlayer; // Variable para el reproductor de música
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.explora_conmigo);
+
+        // Inicializar el reproductor de música y cargar el archivo de música desde res/raw
+        mediaPlayer = MediaPlayer.create(this, R.raw.maravillas); // Reemplaza "nombre_del_archivo" con el nombre de tu archivo de música
+
+        // Configurar para que la música se repita en bucle
+        mediaPlayer.setLooping(true);
+
+        // Iniciar la reproducción de música de fondo
+        mediaPlayer.start();
 
         customScrollView = findViewById(R.id.customScrollView);
         customScrollView.setEnableScrolling(true);
@@ -296,5 +308,33 @@ public class explora extends AppCompatActivity implements OnMapReadyCallback {
                 customScrollView.setEnableScrolling(false); // Deshabilita el desplazamiento
             }
         });
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        // Pausar la música cuando la actividad está en pausa
+        pausarMusica();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Detener la música y liberar recursos cuando la actividad se destruye
+        detenerMusica();
+    }
+
+    private void pausarMusica() {
+        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+        }
+    }
+
+    private void detenerMusica() {
+        if (mediaPlayer != null) {
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            mediaPlayer = null;
+        }
     }
 }
