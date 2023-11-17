@@ -37,6 +37,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imagenPregunta1"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/palomita" />
@@ -70,6 +71,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imagenPregunta2"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/palomita" />
@@ -103,6 +105,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imagenPregunta3"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/tacha" />
@@ -136,6 +139,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imagenPregunta4"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/palomita" />
@@ -169,6 +173,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/imagenPregunta5"
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:src="@drawable/palomita" />
@@ -196,72 +201,7 @@
                 android:textSize="25dp" />
         </LinearLayout>
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/palomita" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/txtPregunta6"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Pregunta 6"
-                android:textAlignment="center"
-                android:textColor="#020242"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/txtRespuesta6"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Aguascalientes"
-                android:textAlignment="center"
-                android:textColor="#020242"
-                android:textSize="25dp" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <ImageView
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/tacha" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/txtPregunta7"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Pregunta 7"
-                android:textAlignment="center"
-                android:textColor="#020242"
-                android:textSize="25dp"
-                android:textStyle="bold"/>
-
-            <TextView
-                android:id="@+id/txtRespuesta7"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:text="Europa"
-                android:textAlignment="center"
-                android:textColor="#020242"
-                android:textSize="25dp" />
-        </LinearLayout>
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
