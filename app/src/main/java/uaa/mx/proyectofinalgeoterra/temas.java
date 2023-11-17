@@ -3,17 +3,29 @@ package uaa.mx.proyectofinalgeoterra;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 
@@ -57,7 +69,8 @@ public class temas extends AppCompatActivity {
                     "2. AMÉRICA\n" +
                     "3. ÁFRICA\n" +
                     "4. ANTÁRTIDA\n" +
-                    "5. EUROPA )(IM,https://1.bp.blogspot.com/-9Fcfflux1n8/X6J9mXHatVI/AAAAAAAATe8/VnjnhxUe3MIBwCgY2xGwulmXUAjSXlLUACLcBGAsYHQ/s16000/Planisferio-Colores-85891.gif)";
+                    "5. EUROPA )(IM,https://1.bp.blogspot.com/-9Fcfflux1n8/X6J9mXHatVI/AAAAAAAATe8/VnjnhxUe3MIBwCgY2xGwulmXUAjSXlLUACLcBGAsYHQ/s16000/Planisferio-Colores-85891.gif)" +
+                    "(VI,https://www.youtube.com/watch?v=VHUbhnjxGrw)";
             longitud=cadena.length();
             muestra();
         }
@@ -124,9 +137,43 @@ public class temas extends AppCompatActivity {
                 imageView.setId(index);
                 imageView.setLayoutParams(layoutParams);
                 linearLayout.addView(imageView);
+            }else if (codigo.substring(0, 2).contains("VI")) {
+
+                WebView webView = new WebView(this);
+
+                // Configurar el WebViewClient para gestionar las URL cargadas dentro del WebView
+                webView.setWebViewClient(new MyWebViewClient());
+
+                // Habilitar JavaScript (opcional)
+                webView.getSettings().setJavaScriptEnabled(true);
+
+                // Cargar la URL deseada
+                webView.loadUrl("https://d.tube/#!/v/historiaenmapas89/hhf5cu5txd8");
+                linearLayout.addView(webView);
+
             }
             index++;
         }
 
+    }
+    // Clase personalizada WebViewClient
+    private class MyWebViewClient extends WebViewClient {
+
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            // Obtener la URL cargada
+            Uri uri = request.getUrl();
+
+            // Verificar si la URL es de Google
+            if (uri.getHost() != null && uri.getHost().contains("google.com")) {
+                // Permitir la carga normal de la URL
+                return false;
+            } else {
+                // Abrir la URL externamente en el navegador
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+                return true;
+            }
+        }
     }
 }

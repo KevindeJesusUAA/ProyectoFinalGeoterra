@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private Button btnInicio;
@@ -17,6 +18,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnInicio = findViewById(R.id.btnInicio);
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+
+
+
+
 
         btnInicio.setOnClickListener(new View.OnClickListener() {
             @Override
