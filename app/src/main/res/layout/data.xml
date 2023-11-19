@@ -10,5 +10,6 @@
         android:id="@+id/info"
         android:background="@drawable/fondo_degradado">
 
+
     </LinearLayout>
 </ScrollView>

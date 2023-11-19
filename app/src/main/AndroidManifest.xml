@@ -29,6 +29,10 @@
             android:name=".menu"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".Evaluaciondim"
+            android:exported="true">
+        </activity>
         <!-- Actividad de la clase paisMundo -->
         <activity
             android:name=".paisMundo"

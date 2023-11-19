@@ -18,7 +18,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.squareup.picasso.Picasso;
+///import com.squareup.picasso.Picasso;
 public class evaluacion extends AppCompatActivity implements OnMapReadyCallback {
 
     // Variable para almacenar la respuesta correcta

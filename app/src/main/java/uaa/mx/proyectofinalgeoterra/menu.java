@@ -52,7 +52,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View v) { //Declaramos el método onClick
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                parametro.putString("parametro", "mapas");//Vamos a asignar el tipo de dato que queremos compartir,
+                parametro.putString("parametro", "1");//Vamos a asignar el tipo de dato que queremos compartir,
                 // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
                 // y por último, agregamos el texto que queremos compartir
 
@@ -71,7 +71,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View v) { //Declaramos el método onClick
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                parametro.putString("parametro", "continentes");//Vamos a asignar el tipo de dato que queremos compartir,
+                parametro.putString("parametro", "2");//Vamos a asignar el tipo de dato que queremos compartir,
                 // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
                 // y por último, agregamos el texto que queremos compartir
 

@@ -25,6 +25,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
@@ -55,7 +56,7 @@ public class temas extends AppCompatActivity {
 
     }
     public void inicializa(){
-        if(para.equals("mapas")){
+        if(para.equals("1")){
             cadena="(TI,Título:) (TE,Dice qué tipo de información contiene el mapa o el lugar que se representa.\n" +
                     "El título de este mapa es: “Carreteras y principales ciudades de México”.\n" +
                     "Rosa de los vientos: Es el símbolo que señala los cuatro puntos cardinales; Norte,\n" +
@@ -64,7 +65,7 @@ public class temas extends AppCompatActivity {
             longitud=cadena.length();
             muestra();
         }
-        if(para.equals("continentes")){
+        if(para.equals("2")){
             cadena="(TI,Título:) (TE,1. ASIA\n" +
                     "2. AMÉRICA\n" +
                     "3. ÁFRICA\n" +
@@ -74,6 +75,7 @@ public class temas extends AppCompatActivity {
             longitud=cadena.length();
             muestra();
         }
+
 
     }
     public void muestra(){
@@ -154,6 +156,32 @@ public class temas extends AppCompatActivity {
             }
             index++;
         }
+        //boton de ir a evaluacion
+        Button btnEnviar = new Button(this);
+
+        btnEnviar.setText("Ir A Evaluacion");
+        btnEnviar.setTextColor(getResources().getColor(android.R.color.white)); // Establecer color de texto
+        btnEnviar.setTextSize(30); // Establecer tamaño de texto
+        btnEnviar.setTypeface(null, Typeface.BOLD); // Establecer estilo de texto a negrita
+        btnEnviar.setBackgroundColor(Color.parseColor("#FF99FF")); // Establecer color de fondo
+
+        // Configurar el evento clic del botón (puedes personalizarlo según tus necesidades)
+        btnEnviar.setOnClickListener(v -> {
+            Intent intent = new Intent(temas.this, Evaluaciondim.class);
+
+            // Poner las respuestas seleccionadas como extras en el Intent
+            intent.putExtra("Tema", para);
+            startActivity(intent);
+        });
+
+        // Crear un LinearLayout
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.CENTER;
+        params.setMargins(0, 40, 0, 0); // Establecer márgenes
+        linearLayout.addView(btnEnviar);
 
     }
     // Clase personalizada WebViewClient

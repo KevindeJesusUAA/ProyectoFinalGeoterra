@@ -96,7 +96,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             android:hint="Contraseña"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:textAlignment="textEnd"
             android:textColor="#FFFFFF"
             android:textColorHint="#526FFF"
