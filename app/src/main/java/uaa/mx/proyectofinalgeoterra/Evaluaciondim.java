@@ -8,6 +8,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -15,26 +16,29 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class Evaluaciondim extends AppCompatActivity {
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
     private boolean musicaReproducida = false;
     private LinearLayout panel;
     private String[][] preg_res;
+    private boolean[] vector = new boolean[10]; // Por ejemplo, un array de tamaño 10, todos los elementos inicializados en false
+
+    private String[] resco = new String[15]; // Donde "n" es el tamaño del array
     protected void onCreate(Bundle savedInstanceState) {
+        Arrays.fill(resco, "");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evaluadinamico);
-        Intent intent = getIntent();
-        String tema = intent.getStringExtra("Tema");
+        AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
+        String tema = intent.get().getStringExtra("Tema");
         mediaPlayer = MediaPlayer.create(this, R.raw.preguntados);
         mediaPlayer.setLooping(false);
         panel=findViewById(R.id.preguntas);
 
 
-        String temas = intent.getStringExtra("Tema");
+        String temas = intent.get().getStringExtra("Tema");
         System.out.println(temas);
         //Aqui ponemos las preguntas dependiendo el tema
         String[][] questionsAndAnswers=null;
@@ -54,11 +58,11 @@ public class Evaluaciondim extends AppCompatActivity {
 
         } else if (temas.equals("2")){//continentes
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Fish","https://www.cuentame.inegi.org.mx/monografias/imagenes/div/bc.gif"},
-                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Fish",""},
-                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Fish",""},
+                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Tamales","https://www.cuentame.inegi.org.mx/monografias/imagenes/div/bc.gif"},
+                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Cat",""},
+                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Yuya",""},
                     {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish",""},
-                    {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Fish",""},
+                    {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Loco",""},
                     {"What animal is this?", "Monkey", "Cat", "Fish", "Monkey", "Fish",""},
                     {"What animal is this?", "Elephant", "Cat", "Fish", "Elephant", "Fish",""},
                     {"What animal is this?", "Bear", "Cat", "Fish", "Bear", "Fish",""},
@@ -109,6 +113,7 @@ public class Evaluaciondim extends AppCompatActivity {
         //creando cuestionario
         System.out.println("tot: "+questionsAndAnswers.length);
         for(int i=0;i<questionsAndAnswers.length;i++){
+            resco[i]=questionsAndAnswers[i][5];
             TextView txtPregunta1 = new TextView(this);
             txtPregunta1.setText("Pregunta "+(i+1));
             txtPregunta1.setLayoutParams(new LinearLayout.LayoutParams(
@@ -191,13 +196,26 @@ public class Evaluaciondim extends AppCompatActivity {
                 btnRespuesta1.setId(View.generateViewId());
 
 // Añade el evento clic al botón
+                String[][] finalQuestionsAndAnswers = questionsAndAnswers;
+                int finalI = i;
                 btnRespuesta1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         // Acción a realizar cuando se hace clic en el botón
                         String textoBoton = ((Button) v).getText().toString();
-                        // Aquí puedes hacer lo que quieras con el texto del botón
-                        // Por ejemplo, asignarlo a una variable o imprimirlo en el log
+                        //questionsAndAnswers[i][6]
+                        String correcta= finalQuestionsAndAnswers[0][5];
+                        System.out.println("usuario: "+textoBoton+" correcta: "+correcta);
+                        if(textoBoton.equals(correcta)){
+                           System.out.println("correcta");
+                            vector[finalI]=true;
+                        }else{
+                            System.out.println("incorrecta");
+                            vector[finalI]=false;
+                        }
+
+
+
                         System.out.println(textoBoton);
 
                     }
@@ -209,15 +227,40 @@ public class Evaluaciondim extends AppCompatActivity {
                 contenedorBoton.setGravity(Gravity.CENTER); // Esto centra solo este contenedor
                 contenedorBoton.addView(btnRespuesta1);
                 panel.addView(contenedorBoton);
-
-
-
             }
 
             //respuestas
             //enviar
 
+
         }
+        //boton de ir a evaluacion
+        Button btnEnviar = new Button(this);
+
+        btnEnviar.setText("Enviar");
+        btnEnviar.setTextColor(getResources().getColor(android.R.color.white)); // Establecer color de texto
+        btnEnviar.setTextSize(30); // Establecer tamaño de texto
+        btnEnviar.setTypeface(null, Typeface.BOLD); // Establecer estilo de texto a negrita
+        btnEnviar.setBackgroundColor(Color.parseColor("#FF99FF")); // Establecer color de fondo
+
+        // Configurar el evento clic del botón (puedes personalizarlo según tus necesidades)
+        btnEnviar.setOnClickListener(v -> {
+             intent.set(new Intent(Evaluaciondim.this,resultadosdin.class));
+            System.out.println("vaya");
+            // Poner las respuestas seleccionadas como extras en el Intent
+            intent.get().putExtra("revision",vector);
+            intent.get().putExtra("correcta",resco);
+            startActivity(intent.get());
+        });
+
+        // Crear un LinearLayout
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.CENTER;
+        params.setMargins(0, 40, 0, 0); // Establecer márgenes
+        panel.addView(btnEnviar);
         /*
 
 
