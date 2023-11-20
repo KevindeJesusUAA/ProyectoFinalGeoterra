@@ -24,7 +24,7 @@ public class Evaluaciondim extends AppCompatActivity {
     private boolean musicaReproducida = false;
     private LinearLayout panel;
     private String[][] preg_res;
-    private boolean[] vector = new boolean[10]; // Por ejemplo, un array de tamaño 10, todos los elementos inicializados en false
+    private boolean[] vector = new boolean[20]; // Por ejemplo, un array de tamaño 10, todos los elementos inicializados en false
 
     private String[] resco = new String[15]; // Donde "n" es el tamaño del array
     protected void onCreate(Bundle savedInstanceState) {
