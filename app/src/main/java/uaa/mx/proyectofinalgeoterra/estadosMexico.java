@@ -179,8 +179,8 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 flecha.setY(CENTRO_Y-50);
                 break;
             case 1:
-                CENTRO_X = screanw / 2 + 300;
-                CENTRO_Y = screanw / 2 + 350;
+                CENTRO_X = (float) (screanw / 2 * 1.6);
+                CENTRO_Y = (float) (screanw / 2 * 1.6);
                 flecha.setX(CENTRO_X-50);
                 flecha.setY(CENTRO_Y-50);
                 break;
@@ -209,8 +209,8 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 flecha.setY(CENTRO_Y - 50);
                 break;
             case 6:
-                CENTRO_X = screanw / 2 + 200;
-                CENTRO_Y = screanh / 2 + 30;
+                CENTRO_X = (float) (screanw / 2 * 1.5);
+                CENTRO_Y = (float) (screanw / 2 * 2.1);
                 flecha.setX(CENTRO_X - 50);
                 flecha.setY(CENTRO_Y - 50);
                 break;
