@@ -28,7 +28,11 @@ public class resultadosdin extends AppCompatActivity {
             System.out.println(valor);
         }
         LinearLayout principal = findViewById(R.id.resul);
-
+        LinearLayout textLayout = new LinearLayout(this);
+        textLayout.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        textLayout.setOrientation(LinearLayout.HORIZONTAL);
         ImageView imageView = new ImageView(this);
         imageView.setLayoutParams(new LinearLayout.LayoutParams(
                 70, // Ancho en píxeles
@@ -61,10 +65,11 @@ public class resultadosdin extends AppCompatActivity {
         respuestaTextView.setTextSize(25);
         respuestaTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
         respuestaTextView.setGravity(Gravity.CENTER);
-
+        textLayout.addView(preguntaTextView);
+        textLayout.addView(respuestaTextView);
         principal.addView(imageView);
-        principal.addView(preguntaTextView);
-        principal.addView(respuestaTextView);
+        principal.addView(textLayout);
+
 
     }
 }
