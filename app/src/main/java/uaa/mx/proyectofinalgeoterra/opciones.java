@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class opciones extends AppCompatActivity {
     DatabaseHelper dbHelper = new DatabaseHelper(this);
     private Button btnRegresar; //Declaramos un botón para regresar a la actividad principal
-    private ImageButton btnIngresar, btnRegistrar;
+    private Button btnIngresar, btnRegistrar;
     private EditText nombre,contrasena;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
