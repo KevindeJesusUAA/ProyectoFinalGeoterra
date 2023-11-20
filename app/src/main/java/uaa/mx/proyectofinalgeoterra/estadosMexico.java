@@ -62,7 +62,6 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
 
     private ImageView animacionImageView, imageView;
     private AnimationDrawable animacionPelota;
-    private float screanwImage, screanhImage;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -84,8 +83,8 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
 
         imageView=findViewById(R.id.imageView3);
 
-        screanwImage = imageView.getDrawable().getIntrinsicWidth();
-        screanhImage = imageView.getDrawable().getIntrinsicHeight();
+        float screanwImage = imageView.getDrawable().getIntrinsicWidth();
+        float screanhImage = imageView.getDrawable().getIntrinsicHeight();
 
         flecha.setVisibility(View.VISIBLE);
 
@@ -191,8 +190,8 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 flecha.setY(CENTRO_Y-50);
                 break;
             case 2:
-                CENTRO_X = (float) (screanwImage / 3 * 0.9);
-                CENTRO_Y = screanhImage / 3;
+                CENTRO_X = screanw / 2 + 160;
+                CENTRO_Y = screanh / 2 - 620;
                 flecha.setX(CENTRO_X-50);
                 flecha.setY(CENTRO_Y-50);
                 break;

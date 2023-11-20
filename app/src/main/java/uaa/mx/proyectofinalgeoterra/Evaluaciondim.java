@@ -44,11 +44,11 @@ public class Evaluaciondim extends AppCompatActivity {
         String[][] questionsAndAnswers=null;
         if(temas.equals("1")){//mapas
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Fish", "Dog",""},
-                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Fish",""},
-                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Fish",""},
-                    {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish",""},
-                    {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Fish",""},
+                    {"Representa el tipo de información que contiene el mapa ", "a. Rosa de los vientos", "b. Titulo", "c. Simbología", "d. Escala", "b. Titulo",""},
+                    {"Son figuras, líneas, puntos o colores que sirven para representar información del mapa.", "a. Rosa de los vientos", "b. Titulo", "c. Simbología", "d. Escala", "c. Simbología","https://catedu.github.io/cartografia-para-montaneros/img/Leyenda%20del%20mapa2.jpg"},
+                    {"¿Cual es el símbolo que señala los cuatro puntos cardinales; Norte, Sur, Este y Oeste.", "a. Rosa de los vientos", "b. Titulo", "c. Simbología", "d. Escala", "a. Rosa de los vientos","https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Rosa_de_los_vientos.svg/2048px-Rosa_de_los_vientos.svg.png"},
+                    {"Es denominada la relación que existe entre las medidas en un plano o mapa y las medidas en la realidad", "a. Rosa de los vientos", "b.Titulo", "c. Simbología", "d. Escala", "d. Escala",""},
+                    {"Son consideradas líneas verticales denominadas meridianos y lineas horizontales llamadas paralelos .", "a. Titulo", "b. Rosa de los vientos", "c. Coordenadas geográficas", "d. Fuente", "c. Coordenadas geográficas",""},
                     {"What animal is this?", "Monkey", "Cat", "Fish", "Monkey", "Fish",""},
                     {"What animal is this?", "Elephant", "Cat", "Fish", "Elephant", "Fish",""},
                     {"What animal is this?", "Bear", "Cat", "Fish", "Bear", "Fish",""},
@@ -58,24 +58,24 @@ public class Evaluaciondim extends AppCompatActivity {
 
         } else if (temas.equals("2")){//continentes
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Tamales","https://www.cuentame.inegi.org.mx/monografias/imagenes/div/bc.gif"},
-                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Cat",""},
-                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Yuya",""},
-                    {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish",""},
-                    {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Loco",""},
-                    {"What animal is this?", "Monkey", "Cat", "Fish", "Monkey", "Fish",""},
-                    {"What animal is this?", "Elephant", "Cat", "Fish", "Elephant", "Fish",""},
+                    {"¿Cuál continente se muestra a continuación?", "a. Oceanía", "b. Europa", "c. Asia", "d. África", "d. África","https://upload.wikimedia.org/wikipedia/commons/3/3f/Africa_in_the_world_%28red%29_%28W3%29.svg"},
+                    {"¿Qué continente se observa en la siguiente figura?", "a. América", "b. Europa", "c. Asia", "d. África", "a. América","https://i0.wp.com/epicentrogeografico.com/wp-content/uploads/1200px-Americas_in_the_world_red_W3.svg_.png"},
+                    {"¿Cuáles son los oceanos que se localizan alrededor del continente de América?", "a. Océanos Atlántico e Índico", "b. Oceános Ártico y Antártico", "c. Oceános Atlántico y Ártico ", "d. Oceáno Antártico", "a. Océanos Atlántico e Índico",""},
+                    {"Menciona el continente que se observa en la siguiente imágen", "a. América", "b. Europa", "c. Asia", "d. África", "b. Europa",""},
+                    {"Selecciona el continente que tiene alrededor los Mares Mediterráneo y Rojo ", "a. América", "b. Europa", "c. Asia", "d. África", "d. África",""},
+                    {"¿Cuál continente se visualiza en la imagen?", "a. América", "b. Oceanía", "c. Asia", "d. África", "c. Asia",""},
+                    {"¿Cuál es el continente que se muestra en la siguiente imagen?", "a. Oceanía", "b. Europa", "c. Asia", "d. África", "a. Oceanía",""},
                     {"What animal is this?", "Bear", "Cat", "Fish", "Bear", "Fish",""},
                     {"What animal is this?", "Fish", "Cat", "Fish", "Fish", "Fish",""},
                     {"What animal is this?", "Horse", "Cat", "Fish", "Horse", "Fish",""}
             };
         } else if (temas.equals("3")) {//paises
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Fish"},
-                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Fish"},
-                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Fish"},
-                    {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish"},
-                    {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Fish"},
+                    {"¿Cuál país se muestra en la siguiente imagen?", "a. Francia", "b. Brasil", "c. China", "d. Argentina", "d.Argentina",""},
+                    {"Selecciona el nombre del país que se muestra en la figura siguiente:", "a. México", "b. Francia", "c. Estados Unidos", "d. Argentina", "d.México", ""},
+                    {"¿Qué país se observa a continuación?", "a. España", "b. Brasil", "c. China", "d. Francia", "c. China", ""},
+                    {"En la siguiente figura se puede visualizar la bandera de un país, ¿de cuál país es la bandera?", "a. Estados Unidos", "b. Brasil", "c, Alemania", "d. China", "a. Estados Unidos", ""},
+                    {"¿Cuál es el país que se puede observar en la siguiente imagen?", "a. Francia", "b. Brasil", "c. China", "d. Argentina", "d.Argentina",""},
                     {"What animal is this?", "Monkey", "Cat", "Fish", "Monkey", "Fish"},
                     {"What animal is this?", "Elephant", "Cat", "Fish", "Elephant", "Fish"},
                     {"What animal is this?", "Bear", "Cat", "Fish", "Bear", "Fish"},
@@ -151,6 +151,9 @@ public class Evaluaciondim extends AppCompatActivity {
                 WebView webView = new WebView(this);
                 webView.getSettings().setJavaScriptEnabled(true);
                 webView.loadUrl(questionsAndAnswers[i][6]);
+
+
+
                 panel.addView(webView);
             }
 
@@ -174,7 +177,7 @@ public class Evaluaciondim extends AppCompatActivity {
 
                 // Crea márgenes para el Button (izquierda, arriba, derecha, abajo)
                 LinearLayout.LayoutParams layoutParamss = new LinearLayout.LayoutParams(
-                        300, // Ancho en píxeles
+                        600, // Ancho en píxeles
                         LinearLayout.LayoutParams.WRAP_CONTENT);
                 layoutParamss.setMargins(20, 20, 20, 20); // Ajusta los márgenes según sea necesario
                 btnRespuesta1.setLayoutParams(layoutParamss);
@@ -195,7 +198,6 @@ public class Evaluaciondim extends AppCompatActivity {
 
                 btnRespuesta1.setId(View.generateViewId());
 
-// Añade el evento clic al botón
                 String[][] finalQuestionsAndAnswers = questionsAndAnswers;
                 int finalI = i;
                 btnRespuesta1.setOnClickListener(new View.OnClickListener() {
