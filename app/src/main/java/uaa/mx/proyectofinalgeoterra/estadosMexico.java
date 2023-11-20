@@ -1,28 +1,35 @@
 package uaa.mx.proyectofinalgeoterra;
 
-import android.annotation.SuppressLint;
+        import android.animation.ObjectAnimator;
+        import android.annotation.SuppressLint;
         import android.graphics.Point;
         import android.hardware.Sensor;
         import android.hardware.SensorEvent;
         import android.hardware.SensorEventListener;
         import android.hardware.SensorManager;
-import android.media.MediaPlayer;
-import android.os.Bundle;
+        import android.media.MediaPlayer;
+        import android.os.Bundle;
         import android.util.DisplayMetrics;
         import android.view.Display;
         import android.view.View;
         import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
+        import android.widget.AdapterView;
+        import android.widget.ArrayAdapter;
+        import android.widget.ImageView;
         import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TextView;
+        import android.widget.Spinner;
+        import android.widget.TextView;
         import android.widget.Toast;
         import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
+        import androidx.constraintlayout.widget.ConstraintLayout;
 
-import java.util.List;
+        import java.util.Arrays;
+        import java.util.List;
+
+        import android.animation.ObjectAnimator;
+        import android.view.animation.DecelerateInterpolator;
+
+        import android.graphics.drawable.AnimationDrawable;
 
 public class estadosMexico extends AppCompatActivity implements SensorEventListener {
     private ImageView flecha;
@@ -43,20 +50,25 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
     private static float CENTRO_X; // Posición x del centro de la pantalla
     private static float CENTRO_Y; // Posición y del centro de la pantalla
     private boolean pelotaEnCentro = false;
-
-    private float nuevaPelotaPosX;
-    private float nuevaPelotaPosY;
     private int selectedItemPosition = 0;
-    private boolean[] itemUsado = {false, false, false};
+    private boolean[] itemUsado = new boolean[10];
     private boolean pelotaMovimiento = false;
 
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
+
+    private ObjectAnimator scaleAnimator;
+    private ObjectAnimator rotateAnimator;
+
+    private ImageView animacionImageView;
+    private AnimationDrawable animacionPelota;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.estados_mexico);
+
+        Arrays.fill(itemUsado, false);
 
         pelota=findViewById(R.id.brujula);
         nuevaPelota = new ImageView(this);
@@ -141,6 +153,20 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
 
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
         gravedad = sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY);
+
+        // Inicializa los animadores de escala y rotación
+        scaleAnimator = ObjectAnimator.ofFloat(pelota, "scaleX", 1f, 1.5f, 1f);
+        scaleAnimator.setDuration(500);  // Duración de la animación en milisegundos
+        scaleAnimator.setInterpolator(new DecelerateInterpolator());  // Interpolador para una animación de desaceleración
+
+        rotateAnimator = ObjectAnimator.ofFloat(pelota, "rotation", 0f, 360f);
+        rotateAnimator.setDuration(500);  // Duración de la animación en milisegundos
+        rotateAnimator.setInterpolator(new DecelerateInterpolator());  // Interpolador para una animación de desaceleración
+
+        animacionImageView = findViewById(R.id.animacionImageView);
+        animacionPelota = (AnimationDrawable) getResources().getDrawable(R.drawable.animacion_bien);
+
+
     }
 
     // Método para inicializar las variables CENTRO_X, CENTRO_Y y las posiciones iniciales de la flecha
@@ -164,25 +190,57 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 flecha.setX(CENTRO_X-50);
                 flecha.setY(CENTRO_Y-50);
                 break;
+            case 3:
+                CENTRO_X = screanw / 2-160;
+                CENTRO_Y = screanh / 2+20;
+                flecha.setX(CENTRO_X-50);
+                flecha.setY(CENTRO_Y-50);
+                break;
+            case 4:
+                CENTRO_X = screanw / 2 - 360;
+                CENTRO_Y = screanh / 2 - 100;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
+            case 5:
+                CENTRO_X = screanw / 2 + 20;
+                CENTRO_Y = screanh / 2 - 150;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
+            case 6:
+                CENTRO_X = screanw / 2 + 200;
+                CENTRO_Y = screanh / 2 + 30;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
+            case 7:
+                CENTRO_X = screanw / 2 - 360;
+                CENTRO_Y = screanh / 2 + 230;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
+            case 8:
+                CENTRO_X = screanw / 2 - 500;
+                CENTRO_Y = screanh / 2 + 450;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
+            case 9:
+                CENTRO_X = screanw / 2 - 310;
+                CENTRO_Y = screanh / 2 + 975;
+                flecha.setX(CENTRO_X - 50);
+                flecha.setY(CENTRO_Y - 50);
+                break;
         }
     }
 
     // Método para ajustar la posición de la pelota según el elemento seleccionado
     private void ajustarPosicionPelotaSegunElemento() {
-        if (selectedItemPosition == 0) {
-            // Ajusta la posición de la pelota para el primer elemento
-            pelota.setX(CENTRO_X - 50);
-            pelota.setY(CENTRO_Y - 50);
-        } else if (selectedItemPosition == 1) {
-            // Ajusta la posición de la pelota para el segundo elemento
-            pelota.setX(CENTRO_X - 50);
-            pelota.setY(CENTRO_Y - 50);
-        } else if (selectedItemPosition == 2) {
-            // Ajusta la posición de la pelota para el segundo elemento
+        if (selectedItemPosition >= 0 && selectedItemPosition < 10) {
             pelota.setX(CENTRO_X - 50);
             pelota.setY(CENTRO_Y - 50);
         }
-        // Añade más casos según sea necesario para otros elementos
     }
 
     /*@Override
@@ -231,6 +289,14 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 }
             }
 
+            if (pelotaMovimiento) {
+                // Oculta animacionImageView cuando la pelota está en movimiento
+                animacionImageView.setVisibility(View.GONE);
+            } else {
+                // Muestra animacionImageView cuando la pelota se detiene
+                animacionImageView.setVisibility(View.VISIBLE);
+            }
+
             if (Math.abs(posX + pelota.getWidth() / 2 - CENTRO_X) < 15 && Math.abs(posY + pelota.getHeight() / 2 - CENTRO_Y) < 15) {
                 pelotaEnCentro = true;
                 flecha.setVisibility(View.GONE);
@@ -246,6 +312,22 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
 
                     // Iniciar la reproducción de música de fondo
                     mediaPlayer.start();
+                }
+
+                // Iniciar las animaciones de escala y rotación cuando la pelota se detiene
+                if (scaleAnimator != null && !scaleAnimator.isRunning()) {
+                    scaleAnimator.start();
+                }
+
+                if (rotateAnimator != null && !rotateAnimator.isRunning()) {
+                    rotateAnimator.start();
+                }
+
+                // Iniciar la animación en la segunda ImageView
+                if (animacionPelota != null) {
+                    animacionImageView.setVisibility(View.VISIBLE);
+                    animacionImageView.setImageDrawable(animacionPelota);
+                    animacionPelota.start();
                 }
             }
         }
