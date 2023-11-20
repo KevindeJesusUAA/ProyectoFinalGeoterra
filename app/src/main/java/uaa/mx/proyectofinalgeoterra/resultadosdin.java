@@ -2,9 +2,12 @@ package uaa.mx.proyectofinalgeoterra;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,9 +30,10 @@ public class resultadosdin extends AppCompatActivity {
         for (String valor : vectorStrings) {
             System.out.println(valor);
         }
+        LinearLayout principal = findViewById(R.id.resul);
         for(int u=0;u<vectorStrings.length;u++){
             if(vectorStrings[u]!=null&&!vectorStrings[u].equals("")){
-                LinearLayout principal = findViewById(R.id.resul);
+
                 LinearLayout textLayout = new LinearLayout(this);
                 textLayout.setLayoutParams(new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.MATCH_PARENT,
@@ -86,6 +90,56 @@ public class resultadosdin extends AppCompatActivity {
             }
 
        }
+        Button btnEnviar = new Button(this);
+
+        btnEnviar.setText("Siguiente");
+        btnEnviar.setTextColor(getResources().getColor(android.R.color.white)); // Establecer color de texto
+        btnEnviar.setTextSize(30); // Establecer tamaño de texto
+        btnEnviar.setTypeface(null, Typeface.BOLD); // Establecer estilo de texto a negrita
+        btnEnviar.setBackgroundColor(Color.parseColor("#FF99FF")); // Establecer color de fondo
+        //Sacar promedio
+        int con=0,tot=0;
+        for(int a=0;a<vectorStrings.length;a++){
+            if(vectorStrings[a]!=null&&!vectorStrings[a].equals("")) {
+                if(vectorBooleanos[a]){
+                    con++;
+                }
+                tot++;
+            }
+        }
+        System.out.println(con+" "+tot);
+        float promediof=(con*10)/tot;
+        //mostrar
+        TextView promedio = new TextView(this);
+        LinearLayout.LayoutParams preguntaParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.WRAP_CONTENT,
+                70, // Alto en píxeles
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        preguntaParams.setMargins(10, 10, 10, 10); // Márgenes (izquierda, arriba, derecha, abajo)
+        promedio.setLayoutParams(preguntaParams);
+        promedio.setText("Promedio tot: "+(promediof));
+        promedio.setTextColor(Color.parseColor("#020242"));
+        promedio.setTextSize(25);
+        promedio.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+        promedio.setGravity(Gravity.CENTER);
+        principal.addView(promedio);
+        // Configurar el evento clic del botón (puedes personalizarlo según tus necesidades)
+        /*btnEnviar.setOnClickListener(v -> {
+            Intent intent = new Intent(temas.this, Evaluaciondim.class);
+
+            // Poner las respuestas seleccionadas como extras en el Intent
+            intent.putExtra("Tema", para);
+            startActivity(intent);
+        });*/
+
+        // Crear un LinearLayout
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT
+        );
+        params.gravity = Gravity.CENTER;
+        params.setMargins(0, 40, 0, 0); // Establecer márgenes
+        principal.addView(btnEnviar);
 
 
 

@@ -204,7 +204,7 @@ public class Evaluaciondim extends AppCompatActivity {
                         // Acción a realizar cuando se hace clic en el botón
                         String textoBoton = ((Button) v).getText().toString();
                         //questionsAndAnswers[i][6]
-                        String correcta= finalQuestionsAndAnswers[0][5];
+                        String correcta= finalQuestionsAndAnswers[finalI][5];
                         System.out.println("usuario: "+textoBoton+" correcta: "+correcta);
                         if(textoBoton.equals(correcta)){
                            System.out.println("correcta");
