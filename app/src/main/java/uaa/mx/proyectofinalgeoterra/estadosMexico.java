@@ -10,6 +10,7 @@ package uaa.mx.proyectofinalgeoterra;
         import android.media.MediaPlayer;
         import android.os.Bundle;
         import android.util.DisplayMetrics;
+        import android.util.Log;
         import android.view.Display;
         import android.view.View;
         import android.view.ViewGroup;
@@ -59,8 +60,9 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
     private ObjectAnimator scaleAnimator;
     private ObjectAnimator rotateAnimator;
 
-    private ImageView animacionImageView;
+    private ImageView animacionImageView, imageView;
     private AnimationDrawable animacionPelota;
+    private float screanwImage, screanhImage;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -80,6 +82,10 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
         screanw = displayMetrics.widthPixels;
         screanh = displayMetrics.heightPixels;
 
+        imageView=findViewById(R.id.imageView3);
+
+        screanwImage = imageView.getDrawable().getIntrinsicWidth();
+        screanhImage = imageView.getDrawable().getIntrinsicHeight();
 
         flecha.setVisibility(View.VISIBLE);
 
@@ -180,13 +186,13 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                 break;
             case 1:
                 CENTRO_X = (float) (screanw / 2 * 1.6);
-                CENTRO_Y = (float) (screanw / 2 * 1.6);
+                CENTRO_Y = (float) (screanh / 3 * 1.2);
                 flecha.setX(CENTRO_X-50);
                 flecha.setY(CENTRO_Y-50);
                 break;
             case 2:
-                CENTRO_X = screanw / 2 + 160;
-                CENTRO_Y = screanh / 2 - 620;
+                CENTRO_X = (float) (screanwImage / 3 * 0.9);
+                CENTRO_Y = screanhImage / 3;
                 flecha.setX(CENTRO_X-50);
                 flecha.setY(CENTRO_Y-50);
                 break;
