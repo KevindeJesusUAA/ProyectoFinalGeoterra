@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -124,13 +125,20 @@ public class resultadosdin extends AppCompatActivity {
         promedio.setGravity(Gravity.CENTER);
         principal.addView(promedio);
         // Configurar el evento clic del botón (puedes personalizarlo según tus necesidades)
-        /*btnEnviar.setOnClickListener(v -> {
-            Intent intent = new Intent(temas.this, Evaluaciondim.class);
+        if(promediof<7){
+            btnEnviar.setOnClickListener(v -> {
+                Toast.makeText(this, "Sorry no Pasaste", Toast.LENGTH_SHORT).show();
+                finish();
+            });
+        }else{
+            btnEnviar.setOnClickListener(v -> {
+                Intent intent2 = new Intent(resultadosdin.this, menu.class);
+                Toast.makeText(this, "Felicidades pasaste", Toast.LENGTH_SHORT).show();
 
-            // Poner las respuestas seleccionadas como extras en el Intent
-            intent.putExtra("Tema", para);
-            startActivity(intent);
-        });*/
+                startActivity(intent2);
+            });
+        }
+
 
         // Crear un LinearLayout
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(

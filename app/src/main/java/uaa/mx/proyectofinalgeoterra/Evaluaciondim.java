@@ -1,6 +1,7 @@
 package uaa.mx.proyectofinalgeoterra;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.GradientDrawable;
@@ -25,8 +26,9 @@ public class Evaluaciondim extends AppCompatActivity {
     private LinearLayout panel;
     private String[][] preg_res;
     private boolean[] vector = new boolean[20]; // Por ejemplo, un array de tamaño 10, todos los elementos inicializados en false
-
+    private int inicio=0;
     private String[] resco = new String[15]; // Donde "n" es el tamaño del array
+    private String[][] questionsAndAnswers=null;
     protected void onCreate(Bundle savedInstanceState) {
         Arrays.fill(resco, "");
         super.onCreate(savedInstanceState);
@@ -41,10 +43,10 @@ public class Evaluaciondim extends AppCompatActivity {
         String temas = intent.get().getStringExtra("Tema");
         System.out.println(temas);
         //Aqui ponemos las preguntas dependiendo el tema
-        String[][] questionsAndAnswers=null;
+
         if(temas.equals("1")){//mapas
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Fish", "Dog",""},
+                    {"What animal is this?", "Dog", "Cat", "Fish", "Fish", "Fish",""},
                     {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Fish",""},
                     {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Fish",""},
                     {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish",""},
@@ -58,9 +60,9 @@ public class Evaluaciondim extends AppCompatActivity {
 
         } else if (temas.equals("2")){//continentes
             questionsAndAnswers = new String[][]{
-                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Tamales","https://www.cuentame.inegi.org.mx/monografias/imagenes/div/bc.gif"},
-                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Cat",""},
-                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Yuya",""},
+                    {"What animal is this?", "Dog", "Cat", "Fish", "Dog", "Fish","https://www.cuentame.inegi.org.mx/monografias/imagenes/div/bc.gif","H"},
+                    {"What animal is this?", "Lion", "Cat", "Bird", "Cat", "Fish","https://img.freepik.com/fotos-premium/fondos-pantalla-iphone-que-son-azules-blancos_789916-78.jpg?w=360","V"},
+                    {"What animal is this?", "Snake", "Cat", "Fish", "Snake", "Fish",""},
                     {"What animal is this?", "Tiger", "Cat", "Fish", "Tiger", "Fish",""},
                     {"What animal is this?", "Dolphin", "Cat", "Fish", "Dolphin", "Loco",""},
                     {"What animal is this?", "Monkey", "Cat", "Fish", "Monkey", "Fish",""},
@@ -150,7 +152,21 @@ public class Evaluaciondim extends AppCompatActivity {
             if(!questionsAndAnswers[i][6].equals("")){
                 WebView webView = new WebView(this);
                 webView.getSettings().setJavaScriptEnabled(true);
+                int anchoEnPixeles=0,altoEnPixeles=0;
+                if(questionsAndAnswers[i][7].equals("H")){
+                     anchoEnPixeles = 700;
+                     altoEnPixeles = 500;
+                }else{
+                     anchoEnPixeles = 500;
+                     altoEnPixeles = 700;
+                }
+
+
+                ViewGroup.LayoutParams layoutParamss = new ViewGroup.LayoutParams(anchoEnPixeles, altoEnPixeles);
+                webView.setLayoutParams(layoutParamss);
+
                 webView.loadUrl(questionsAndAnswers[i][6]);
+
                 panel.addView(webView);
             }
 
@@ -174,7 +190,7 @@ public class Evaluaciondim extends AppCompatActivity {
 
                 // Crea márgenes para el Button (izquierda, arriba, derecha, abajo)
                 LinearLayout.LayoutParams layoutParamss = new LinearLayout.LayoutParams(
-                        300, // Ancho en píxeles
+                        600, // Ancho en píxeles
                         LinearLayout.LayoutParams.WRAP_CONTENT);
                 layoutParamss.setMargins(20, 20, 20, 20); // Ajusta los márgenes según sea necesario
                 btnRespuesta1.setLayoutParams(layoutParamss);
@@ -192,8 +208,12 @@ public class Evaluaciondim extends AppCompatActivity {
                 layoutPrincipal.setOrientation(LinearLayout.VERTICAL)*/;
                 // Crea un contenedor para el Button y establece la gravedad al centro solo para este contenedor
                 //evento
-
-                btnRespuesta1.setId(View.generateViewId());
+                int id=View.generateViewId();
+                if(p==0&&i==0){
+                    inicio=id;
+                }
+                btnRespuesta1.setId(id);
+                System.out.println("id:   "+id);
 
 // Añade el evento clic al botón
                 String[][] finalQuestionsAndAnswers = questionsAndAnswers;
@@ -206,6 +226,9 @@ public class Evaluaciondim extends AppCompatActivity {
                         //questionsAndAnswers[i][6]
                         String correcta= finalQuestionsAndAnswers[finalI][5];
                         System.out.println("usuario: "+textoBoton+" correcta: "+correcta);
+                        limpiar(btnRespuesta1);
+                        validarRespuesta( btnRespuesta1);
+
                         if(textoBoton.equals(correcta)){
                            System.out.println("correcta");
                             vector[finalI]=true;
@@ -278,6 +301,46 @@ public class Evaluaciondim extends AppCompatActivity {
                 android:layout_marginBottom="16dp"
                 android:textColor="#020242"/>
         */
+
+
+
+
+    }
+    private void validarRespuesta(Button btnRespuesta) {
+        // Restablecer el color de fondo del botón previamente seleccionado
+
+        // Cambiar el color de fondo del botón seleccionado
+        btnRespuesta.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBotonSeleccionado)));
+
+
+    }
+    public  void limpiar(Button btnRespuesta){
+        int id = btnRespuesta.getId();
+        System.out.println("que: "+id);
+        int ini = id/4;
+        if(id%4!=0){
+            ini++;
+        }
+
+        ini*=4;
+        System.out.println("final "+ini);
+
+
+
+        Button btnRespuesta5 = findViewById(ini);
+        btnRespuesta5.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBotonRespuesta4)));
+        ini--;
+        btnRespuesta5 = findViewById(ini);
+        btnRespuesta5.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBotonRespuesta3)));
+        ini--;
+        btnRespuesta5 = findViewById(ini);
+        btnRespuesta5.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBotonRespuesta2)));
+        ini--;
+        btnRespuesta5 = findViewById(ini);
+        btnRespuesta5.setBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.colorBotonRespuesta1)));
+
+
+
 
 
 
