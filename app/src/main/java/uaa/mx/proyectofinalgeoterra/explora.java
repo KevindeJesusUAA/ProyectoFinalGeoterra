@@ -211,7 +211,6 @@ private  String Nombre,id;
                     .title(nombreUbicacion));
             mMap.moveCamera(CameraUpdateFactory.newLatLng(ubicacion));
 
-            // Agrega un listener al mapa para deshabilitar el desplazamiento del ScrollView
             mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
                 @Override
                 public void onMapClick(LatLng latLng) {
