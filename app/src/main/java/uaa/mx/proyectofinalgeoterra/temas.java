@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -16,18 +15,13 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
-import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.VideoView;
 
 import com.bumptech.glide.Glide;
 
@@ -41,10 +35,14 @@ public class temas extends AppCompatActivity {
     private  ArrayList<ArrayList<String>> separado = new ArrayList<>();
     LinearLayout linearLayout ;
     private String para;
+
+    private CustomScrollView customScrollView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.data);
+
+        customScrollView = findViewById(R.id.customScrollView);
 
         Bundle recibeIngreso = getIntent().getExtras(); //Vamos a recibir los datos del parametro, obteniendo el intento y llamamos al método de getExtras
         // para obtener un objeto Bundle que contiene los datos
@@ -58,21 +56,45 @@ public class temas extends AppCompatActivity {
     }
     public void inicializa(){
         if(para.equals("1")){
-            cadena="(TI,Título:) (TE,Dice qué tipo de información contiene el mapa o el lugar que se representa.\n" +
-                    "El título de este mapa es: “Carreteras y principales ciudades de México”.\n" +
-                    "Rosa de los vientos: Es el símbolo que señala los cuatro puntos cardinales; Norte,\n" +
-                    "Sur, Este y Oeste. En los mapas, la rosa de los vientos siempre orientará\n" +
-                    "geográficamente señalando el norte hacia arriba. )(IM,https://i0.wp.com/alpoma.net/carto/wp-content/uploads/2019/07/An_Animated_Map_of_the_Earth.gif?ssl=1)";
+            cadena="(TI,Título) (TE,Dice qué tipo de información contiene el mapa o el lugar que se representa.\n" +
+                    "El título de este mapa es: “Carreteras y principales ciudades de México”.)\n" +
+                    "geográficamente señalando el norte hacia arriba. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-iCV3qwx8Hn-4KgTRkk5pO.png)\n" +
+                    "(TI,Rosa de los vientos) (TE,Es el símbolo que señala los cuatro puntos cardinales; Norte, Sur, Este y Oeste. En los mapas, la rosa de los vientos siempre orientará " +
+                    "geográficamente señalando el norte hacia arriba)(IM,https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Rosa_de_los_vientos.svg/2048px-Rosa_de_los_vientos.svg.png)\n" +
+                    "(TI,Simbología) (TE,Son figuras, líneas, puntos o colores que sirven para representar la información del mapa)(IM,https://catedu.github.io/cartografia-para-montaneros/img/Leyenda%20del%20mapa2.jpg)\n" +
+                    "(TI,Escala) (TE,Representa la relación que existe entre las medidas en un plano o mapa y las medidas en la realidad. Las escalas se representan en dos tipos, numérica y gráfica.)\n" +
+                    "(TE,En el mapa que estás analizando de “Carreteras y principales ciudades de México”, tiene los dos tipos de escala, la numérica es de 1: 15 463 917)(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-ZIF8boVWdt-sVYX1cYMjF.png)\n" +
+                    "(TI,Coordenadas Geográficas) (TE, Son líneas imaginarias verticales y horizontales. En el siguiente planisferio se pueden visualizar mejor. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-zKS0oz04Sm-eu971aO6HE.png)(AT,https://wordwall.net/es/resource/5253844/elementos-de-los-mapas)";
             longitud=cadena.length();
             muestra();
         }
         if(para.equals("2")){
-            cadena="(TI,Chicos niños:) (TE,1. ASIA\n" +
-                    "2. AMÉRICA\n" +
-                    "3. ÁFRICA\n" +
-                    "4. ANTÁRTIDA\n" +
-                    "5. EUROPA )(IM,https://1.bp.blogspot.com/-9Fcfflux1n8/X6J9mXHatVI/AAAAAAAATe8/VnjnhxUe3MIBwCgY2xGwulmXUAjSXlLUACLcBGAsYHQ/s16000/Planisferio-Colores-85891.gif)" +
-                    "(VI,https://www.youtube.com/watch?v=VHUbhnjxGrw)";
+            cadena="(TI,América) (TE,Este continente es el segundo continente más extenso y lo forma dos conjuntos América del Norte y América del Sur, bien diferenciados y unidos por América Central.)\n\n\n+ " +
+                    "(TE,Océanos)\n\n\n" +
+                    "(TE,Océanos Atlántico, Pacífico, G. Ártico y G. Antártico.)\n\n\n" +
+                    "(TE,Mares)\n\n\n" +
+                    "(TE,Mares principales: Mar del Caribe y Mar del Labrador) \n\n\n"+
+                    "(TE,RIOS: )\n\n"+
+                    "(TE,°Misisipi-Misuri y Colorado en el Norte\n" +
+                    "°Amazonas, 6.280 km.\n" +
+                    "°Orinoco.\n" +
+                    "°Paraná )\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/mapa-fisico-america.jpg?w=887&ssl=1)" +
+
+                    "(TI,África) (TE,Este continente es el segundo continente más extenso y lo forma dos conjuntos América del Norte y América del Sur, bien diferenciados y unidos por América Central.)\n\n\n+ " +
+                    "(TE,Océanos)\n\n\n" +
+                    "(TE,Océanos Atlántico, Pacífico, G. Ártico y G. Antártico.)\n\n\n" +
+                    "(TE,Mares)\n\n\n" +
+                    "(TE,Mares principales: Mar del Caribe y Mar del Labrador) \n\n\n"+
+                    "(TE,RIOS: )\n\n"+
+                    "(TE,°Misisipi-Misuri y Colorado en el Norte\n" +
+                    "°Amazonas, 6.280 km.\n" +
+                    "°Orinoco.\n" +
+                    "°Paraná )\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/africa.jpg?w=825&ssl=1)" +
+
+
+                    "(VI,https://www.youtube.com/watch?v=Mad8refpcw4&ab_channel=Tipseducativosmx)";
             longitud=cadena.length();
             muestra();
         }
@@ -184,6 +206,8 @@ public class temas extends AppCompatActivity {
 
                 WebView webView = new WebView(this);
 
+
+
                 // Configurar el WebViewClient para gestionar las URL cargadas dentro del WebView
                 webView.setWebViewClient(new MyWebViewClient());
 
@@ -191,12 +215,95 @@ public class temas extends AppCompatActivity {
                 webView.getSettings().setJavaScriptEnabled(true);
 
                 // Cargar la URL deseada
-                webView.loadUrl("https://www.dailymotion.com/video/x7jfgjd");
-                linearLayout.addView(webView);
+                webView.loadUrl(codigo.substring(3));
+                /*webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        customScrollView.setEnableScrolling(false);
+                        return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });*/
+                LinearLayout linearLayout2 = new LinearLayout(this);
+                linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        1200));
+                linearLayout2.setOrientation(LinearLayout.VERTICAL);
+
+                /*webView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        customScrollView.setEnableScrolling(false);
+                        Log.d("MapClick", "Map clicked");
+                    }
+                });*/
+
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        customScrollView.setEnableScrolling(true);
+
+                        return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });
+
+                linearLayout2.addView(webView);
+
+                linearLayout.addView(linearLayout2);
+
+            }else if (codigo.substring(0, 2).contains("AT")) {
+
+                WebView webView = new WebView(this);
+
+
+
+                // Configurar el WebViewClient para gestionar las URL cargadas dentro del WebView
+                webView.setWebViewClient(new MyWebViewClient());
+
+                // Habilitar JavaScript (opcional)
+                webView.getSettings().setJavaScriptEnabled(true);
+
+                // Cargar la URL deseada
+                webView.loadUrl(codigo.substring(3));
+                /*webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        customScrollView.setEnableScrolling(false);
+                        return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });*/
+                LinearLayout linearLayout2 = new LinearLayout(this);
+                linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+                linearLayout2.setOrientation(LinearLayout.VERTICAL);
+
+                /*webView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        customScrollView.setEnableScrolling(false);
+                        Log.d("MapClick", "Map clicked");
+                    }
+                });*/
+
+                webView.setWebViewClient(new WebViewClient() {
+                    @Override
+                    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                        customScrollView.setEnableScrolling(false);
+
+                        return super.shouldOverrideUrlLoading(view, request);
+                    }
+                });
+
+                linearLayout2.addView(webView);
+
+                linearLayout.addView(linearLayout2);
 
             }
             index++;
         }
+
+
+
         //boton de ir a evaluacion
         Button btnEnviar = new Button(this);
 
