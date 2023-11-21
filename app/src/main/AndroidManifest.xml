@@ -79,6 +79,10 @@
             android:name=".resultados"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".reconocimiento"
+            android:exported="true">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${key2}" />
