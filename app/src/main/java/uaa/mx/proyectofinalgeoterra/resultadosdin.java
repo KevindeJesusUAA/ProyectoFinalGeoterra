@@ -73,21 +73,23 @@ public class resultadosdin extends AppCompatActivity {
                 TextView respuestaTextView = new TextView(this);
                 LinearLayout.LayoutParams respuestaParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
-                        200, // Alto en píxeles
+                        150, // Alto en píxeles
                         LinearLayout.LayoutParams.WRAP_CONTENT);
                 respuestaParams.setMargins(10, 10, 10, 10); // Márgenes (izquierda, arriba, derecha, abajo)
                 respuestaTextView.setLayoutParams(respuestaParams);
-                respuestaTextView.setText(vectorStrings[u]);
+                respuestaTextView.setText("Respuesta Correcta:\n"+vectorStrings[u]);
                 respuestaTextView.setTextColor(Color.parseColor("#020242"));
                 respuestaTextView.setTextSize(25);
                 respuestaTextView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                 respuestaTextView.setGravity(Gravity.CENTER);
                 Guarda.addView(imageView);
                 textLayout.addView(preguntaTextView);
-                textLayout.addView(respuestaTextView);
+                //textLayout.addView(respuestaTextView);
                 Guarda.addView(textLayout);
-
                 principal.addView(Guarda);
+                principal.addView(respuestaTextView);
+                //Guarda.addView(textLayout);
+
             }
 
        }

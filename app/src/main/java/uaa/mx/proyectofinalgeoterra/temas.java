@@ -11,6 +11,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,7 +52,7 @@ public class temas extends AppCompatActivity {
         para = recibeIngreso.getString("parametro"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         // y vamos a almacenarlos en una variable de tipo string
 
-        linearLayout= findViewById(R.id.info);
+        linearLayout= findViewById(R.id.preguntas);
         inicializa();
 
     }
@@ -66,7 +67,7 @@ public class temas extends AppCompatActivity {
             muestra();
         }
         if(para.equals("2")){
-            cadena="(TI,Título:) (TE,1. ASIA\n" +
+            cadena="(TI,Chicos niños:) (TE,1. ASIA\n" +
                     "2. AMÉRICA\n" +
                     "3. ÁFRICA\n" +
                     "4. ANTÁRTIDA\n" +
@@ -93,16 +94,42 @@ public class temas extends AppCompatActivity {
             String codigo = matcher.group(1);
             System.out.println(  codigo);
             if(codigo.substring(0, 2).contains("TE")){
-                TextView textView = new TextView(this);
+                /*TextView textView = new TextView(this);
                 textView.setText(codigo.substring(3));
                 // Cambia el color del texto
                 textView.setTextColor(Color.argb(255,2,2,66));
                 textView.setTextSize(26);
                 textView.setTypeface(Typeface.DEFAULT);
                 textView.setId(index);
+                linearLayout.addView(textView);*/
+                TextView textView = new TextView(this);
+                textView.setText(codigo.substring(3));
+                textView.setTextColor(Color.argb(255, 255, 255, 255));
+                textView.setTextSize(26);
+                textView.setTypeface(Typeface.DEFAULT);
+                textView.setId(index);
+
+// Crear parámetros de diseño con márgenes
+                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                        LinearLayout.LayoutParams.MATCH_PARENT,
+                        LinearLayout.LayoutParams.WRAP_CONTENT);
+
+// Ajustar márgenes (left, top, right, bottom)
+                layoutParams.setMargins(20, 20, 20, 20);
+
+// Establecer gravedad para justificar el texto
+                textView.setGravity(Gravity.LEFT | Gravity.RIGHT | Gravity.START | Gravity.END);
+
+// Aplicar parámetros de diseño al TextView
+                textView.setLayoutParams(layoutParams);
+
+// Agregar el TextView al LinearLayout
                 linearLayout.addView(textView);
+
+
+
             }else if (codigo.substring(0, 2).contains("TI")){
-                System.out.println("ES TITULO");
+                /*System.out.println("ES TITULO");
                 TextView textView = new TextView(this);
                 textView.setText(codigo.substring(3)); // Configura el texto del TextView
                 textView.setTextSize(32);
@@ -110,6 +137,20 @@ public class temas extends AppCompatActivity {
                 textView.setTypeface(null, Typeface.BOLD);
                 textView.setGravity(Gravity.CENTER);
                 textView.setId(index);
+                linearLayout.addView(textView);*/
+                TextView textView = new TextView(this);
+                textView.setLayoutParams(new ViewGroup.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT));
+                textView.setText(codigo.substring(3));
+                textView.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 50);
+                textView.setTypeface(null, Typeface.BOLD);
+                textView.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+                textView.setTextColor(Color.WHITE);
+                textView.setGravity(Gravity.CENTER);
+                textView.setPadding(40, 40, 40, 40);
+                //textView.setBackgroundResource(R.drawable.fondo_textview);
+                textView.setBackgroundColor(Color.parseColor("#3465E0"));
                 linearLayout.addView(textView);
             }else if (codigo.substring(0, 2).contains("IM")){
                 System.out.println("ES IMAGENES");
@@ -150,7 +191,7 @@ public class temas extends AppCompatActivity {
                 webView.getSettings().setJavaScriptEnabled(true);
 
                 // Cargar la URL deseada
-                webView.loadUrl("https://d.tube/#!/v/historiaenmapas89/hhf5cu5txd8");
+                webView.loadUrl("https://www.dailymotion.com/video/x7jfgjd");
                 linearLayout.addView(webView);
 
             }

@@ -90,7 +90,7 @@ public class menu extends AppCompatActivity {
             public void onClick(View v) { //Declaramos el método onClick
 
                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
+                parametro.putString("parametro", "3");//Vamos a asignar el tipo de dato que queremos compartir,
                 // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
                 // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
 
