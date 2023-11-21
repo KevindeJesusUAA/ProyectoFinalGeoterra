@@ -54,7 +54,7 @@ public class explora extends AppCompatActivity implements OnMapReadyCallback {
     private Button btnEvaluacion;
 
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
-
+private  String Nombre,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,7 +62,9 @@ public class explora extends AppCompatActivity implements OnMapReadyCallback {
 
         // Inicializar el reproductor de música y cargar el archivo de música desde res/raw
         mediaPlayer = MediaPlayer.create(this, R.raw.maravillas); // Reemplaza "nombre_del_archivo" con el nombre de tu archivo de música
-
+        Bundle recibeIngreso = getIntent().getExtras();
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
         // Configurar para que la música se repita en bucle
         mediaPlayer.setLooping(true);
 
@@ -105,7 +107,13 @@ public class explora extends AppCompatActivity implements OnMapReadyCallback {
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
                 Intent intent = new Intent(explora.this, evaluacion.class);
-                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+
+                System.out.println("vaya");
+                // Poner las respuestas seleccionadas como extras en el Intent
+
+                intent.putExtra("Nombre",Nombre);
+                intent.putExtra("Idusu",id);
+                intent.putExtra("Tema",3);
                 startActivity(intent);
 
             }

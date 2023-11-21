@@ -28,6 +28,7 @@ public class memorama extends AppCompatActivity {
     private int aux=-1;
     private  List<Integer> Listos = new ArrayList<>();
     private  int llevado=0;
+    private String Nombre,id;
     @SuppressLint("ResourceType")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +41,11 @@ public class memorama extends AppCompatActivity {
         para = recibeIngreso.getString("parametro"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         // y vamos a almacenarlos en una variable de tipo string
 
+
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
         //mis imagenes  varios memoramas
+        System.out.println("memo:::"+Nombre+" "+id);
 
         if(para.contains("3")){
             index=0;
@@ -85,7 +90,7 @@ public class memorama extends AppCompatActivity {
 
             tarjeta.setId(indiceAleatorio);
             System.out.println(indiceAleatorio);
-            tarjeta.setImageResource(R.drawable.imgagen);
+            tarjeta.setImageResource(R.drawable.cartamem);
             tarjeta.setLayoutParams(new GridLayout.LayoutParams());
             tarjeta.getLayoutParams().width = 0;
             tarjeta.getLayoutParams().height = 0;
@@ -123,21 +128,24 @@ public class memorama extends AppCompatActivity {
                                                 //ganasete
                                                 Toast.makeText(memorama.this, "Felicidades Ganaste", Toast.LENGTH_SHORT).show();
                                                 Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                                                parametro.putString("Tema", para);//Vamos a asignar el tipo de dato que queremos compartir,
-                                                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
-                                                // y por último, agregamos el texto que queremos compartir, que será la infomración del EditText
-
+                                                parametro.putString("Tema", "3");//Vamos a asignar el tipo de dato que queremos compartir,
+                                                Bundle nom = new Bundle(); //Se crea una instancia de la clase Bundle
+                                                nom.putString("Nombre", Nombre);
+                                                Bundle ids = new Bundle(); //Se crea una instancia de la clase Bundle
+                                                ids.putString("Idusu", id);
                                                 // Inicia la nueva actividad cuando se hace clic en el botón
                                                 Intent intent = new Intent(memorama.this, Evaluaciondim.class); // Reemplaza "NuevaActividad" con el nombre de tu nueva actividad
                                                 intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
+                                                intent.putExtras(nom);
+                                                intent.putExtras(ids);
                                                 startActivity(intent);
                                             }
                                         } else {
                                             System.out.println("noo " + aux + "  " + idDeLaTarjeta);
                                             ImageView ca1 = findViewById(aux);
                                             ImageView ca2 = findViewById(idDeLaTarjeta);
-                                            ca1.setImageResource(R.drawable.imgagen);
-                                            ca2.setImageResource(R.drawable.imgagen);
+                                            ca1.setImageResource(R.drawable.cartamem);
+                                            ca2.setImageResource(R.drawable.cartamem);
                                         }
                                         pasos = -1;
                                         aux = -1;

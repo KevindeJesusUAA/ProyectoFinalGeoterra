@@ -42,6 +42,9 @@ public class opciones extends AppCompatActivity {
                     if(simun){
                         Toast.makeText(opciones.this, "Bienvenido: "+nombre.getText().toString().trim(), Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(opciones.this, menu.class);
+                        intent.putExtra("Nombre", nombre.getText().toString().trim());
+                        intent.putExtra("Idusu",""+dbHelper.obtenerIdUsuario(nombre.getText().toString().trim(), contrasena.getText().toString().trim()) );
+
                         startActivity(intent);
                     }else{
                         Toast.makeText(opciones.this, "Usuario No Encontrado", Toast.LENGTH_SHORT).show();

@@ -15,6 +15,7 @@ public class resultados extends AppCompatActivity {
     private String respuestaCorrecta3 = "d. Coliseo";
     private String respuestaCorrecta4 = "b. Machu Pichu";
     private String respuestaCorrecta5 = "a. Taj Mahal";
+    private String Nombre,id,tema;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +28,10 @@ public class resultados extends AppCompatActivity {
         String respuestaSeleccionada3 = intent.getStringExtra("respuestaSeleccionada3");
         String respuestaSeleccionada4 = intent.getStringExtra("respuestaSeleccionada4");
         String respuestaSeleccionada5 = intent.getStringExtra("respuestaSeleccionada5");
-
+        Bundle recibeIngreso = getIntent().getExtras();
+         tema = recibeIngreso.getString("Tema");
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
 
 
         // Referencias a los TextViews en el layout

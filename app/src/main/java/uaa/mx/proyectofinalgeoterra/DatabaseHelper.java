@@ -7,10 +7,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.view.View;
-import android.widget.Toast;
-
-import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -106,6 +102,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO temas  VALUES (null,'Explora', 'Texto del tema 4', 'Dinámica del tema 4');");
         db.execSQL("INSERT INTO temas  VALUES (null,'Estados', 'Texto del tema 5', 'Dinámica del tema 5');");
     }
+    public void ingpro(String pro,String usu,String tema){
+        ContentValues values = new ContentValues();
+        values.put("calificacion", pro);  // Reemplaza 8.5 con el valor de la calificación que desees insertar
+        values.put("fk_usuario", usu);      // Reemplaza 1 con el valor del usuario que deseas asociar
+        values.put("fk_tema", tema);         // Reemplaza 2 con el valor del tema que deseas asociar
+        SQLiteDatabase db = this.getWritableDatabase();
+        long resultado = db.insert("aplica", null, values);
+
+        if (resultado == -1) {
+            System.out.println("error");
+        } else {
+            System.out.println("bien");
+
+        }
+    }
     public long insertUsuario(String nombre, String contraseña, String edad, String color,String direccion) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -169,6 +180,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return existeUsuario;
     }
     @SuppressLint("Range")
+    public int obtenerIdUsuario(String nombre, String contraseña) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String[] columns = {"id"};
+        String selection = "nombre = ? AND contraseña = ?";
+        String[] selectionArgs = {nombre, contraseña};
+
+        Cursor cursor = db.query("usuarios", columns, selection, selectionArgs, null, null, null);
+
+        int idUsuario = -1; // Valor predeterminado si no se encuentra el usuario
+
+        if (cursor.moveToFirst()) {
+            // Se encontró un usuario, obtén el ID
+            idUsuario = cursor.getInt(cursor.getColumnIndex("id"));
+            System.out.println("yeah: "+idUsuario);
+        }
+        return idUsuario;
+
+
+
+    }
+
+    @SuppressLint("Range")
     public List<HashMap<String, String>> gettemas() {
         List<HashMap<String, String>> userList = new ArrayList<>();
 
@@ -229,6 +263,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
 
         return recuento;
+    }
+    public boolean existeRegistro(String fkUsuario, String fkTema) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        String query = "SELECT * FROM aplica WHERE fk_usuario = ? AND fk_tema = ?";
+        String[] selectionArgs = {String.valueOf(fkUsuario), String.valueOf(fkTema)};
+
+        Cursor cursor = db.rawQuery(query, selectionArgs);
+
+        boolean existeRegistro = cursor.moveToFirst();
+
+        cursor.close();
+        db.close();
+
+        return existeRegistro;
     }
 
 

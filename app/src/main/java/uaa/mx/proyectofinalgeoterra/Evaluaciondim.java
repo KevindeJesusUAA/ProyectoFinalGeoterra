@@ -32,16 +32,20 @@ public class Evaluaciondim extends AppCompatActivity {
     private int inicio=0;
     private String[] resco = new String[15]; // Donde "n" es el tamaño del array
     private String[][] questionsAndAnswers=null;
+    private String Nombre,id;
     protected void onCreate(Bundle savedInstanceState) {
         Arrays.fill(resco, "");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evaluadinamico);
         AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
         String tema = intent.get().getStringExtra("Tema");
+        Bundle recibeIngreso = getIntent().getExtras();
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
         mediaPlayer = MediaPlayer.create(this, R.raw.preguntados);
         mediaPlayer.setLooping(false);
         panel=findViewById(R.id.preguntas);
-
+        System.out.println("dinamico:::: "+Nombre+" "+id);
 
         String temas = intent.get().getStringExtra("Tema");
         System.out.println(temas);
@@ -294,6 +298,9 @@ public class Evaluaciondim extends AppCompatActivity {
             // Poner las respuestas seleccionadas como extras en el Intent
             intent.get().putExtra("revision",vector);
             intent.get().putExtra("correcta",resco);
+            intent.get().putExtra("Nombre",Nombre);
+            intent.get().putExtra("Idusu",id);
+            intent.get().putExtra("Tema",tema);
             startActivity(intent.get());
         });
 

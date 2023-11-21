@@ -15,13 +15,17 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.concurrent.atomic.AtomicReference;
+
 public class resultadosdin extends AppCompatActivity {
+    private String Nombre,id,tema;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resultadodin);
-        Intent intent = getIntent();
-        boolean[] vectorBooleanos = intent.getBooleanArrayExtra("revision");
-        String[] vectorStrings = intent.getStringArrayExtra("correcta");
+        AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
+        boolean[] vectorBooleanos = intent.get().getBooleanArrayExtra("revision");
+        String[] vectorStrings = intent.get().getStringArrayExtra("correcta");
         System.out.println("Vector de booleanos:");
         for (boolean valor : vectorBooleanos) {
             System.out.println(String.valueOf(valor));
@@ -31,6 +35,10 @@ public class resultadosdin extends AppCompatActivity {
         for (String valor : vectorStrings) {
             System.out.println(valor);
         }
+        Bundle recibeIngreso = getIntent().getExtras();
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
+        tema= recibeIngreso.getString("Tema");
         LinearLayout principal = findViewById(R.id.resul);
         for(int u=0;u<vectorStrings.length;u++){
             if(vectorStrings[u]!=null&&!vectorStrings[u].equals("")){
@@ -134,10 +142,27 @@ public class resultadosdin extends AppCompatActivity {
             });
         }else{
             btnEnviar.setOnClickListener(v -> {
-                Intent intent2 = new Intent(resultadosdin.this, menu.class);
-                Toast.makeText(this, "Felicidades pasaste", Toast.LENGTH_SHORT).show();
+                /*Intent intent2 = new Intent(resultadosdin.this, menu.class);
+                Toast.makeText(this, "Felicidades pasaste"+Nombre+" id:"+id, Toast.LENGTH_SHORT).show();
+                intent2.get().putExtra("Nombre",Nombre);
+                intent2.get().putExtra("Idusu",id);
+                startActivity(intent2);*/
+                Toast.makeText(this, "Felicidades pasaste"+Nombre+" id:"+id, Toast.LENGTH_SHORT).show();
+                 intent.set(new Intent(resultadosdin.this, menu.class));
 
-                startActivity(intent2);
+                // Poner las respuestas seleccionadas como extras en el Intent
+
+                intent.get().putExtra("Nombre", Nombre);
+                intent.get().putExtra("Idusu",""+id);
+                intent.get().putExtra("Nombre",Nombre);
+                intent.get().putExtra("Idusu",id);
+                intent.get().putExtra("Tema",tema);
+                startActivity(intent.get());
+                //vamos a ver
+                //agrega temas
+                DatabaseHelper dbHelper = new DatabaseHelper(this);
+                dbHelper.ingpro(String.valueOf(promediof),id,tema);
+
             });
         }
 

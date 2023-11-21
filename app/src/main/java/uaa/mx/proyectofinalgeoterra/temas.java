@@ -40,7 +40,7 @@ public class temas extends AppCompatActivity {
     private int longitud=0;
     private  ArrayList<ArrayList<String>> separado = new ArrayList<>();
     LinearLayout linearLayout ;
-    private String para;
+    private String para,Nombre,id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,6 +52,10 @@ public class temas extends AppCompatActivity {
         para = recibeIngreso.getString("parametro"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         // y vamos a almacenarlos en una variable de tipo string
 
+
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
+        System.out.println("temas: "+Nombre+" "+id);
         linearLayout= findViewById(R.id.preguntas);
         inicializa();
 
@@ -191,7 +195,7 @@ public class temas extends AppCompatActivity {
                 webView.getSettings().setJavaScriptEnabled(true);
 
                 // Cargar la URL deseada
-                webView.loadUrl("https://www.dailymotion.com/video/x7jfgjd");
+                webView.loadUrl(codigo.substring(3));
                 linearLayout.addView(webView);
 
             }
@@ -212,6 +216,8 @@ public class temas extends AppCompatActivity {
 
             // Poner las respuestas seleccionadas como extras en el Intent
             intent.putExtra("Tema", para);
+            intent.putExtra("Nombre", Nombre);
+            intent.putExtra("Idusu",""+id);
             startActivity(intent);
         });
 

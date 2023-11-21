@@ -18,6 +18,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.concurrent.atomic.AtomicReference;
+
 ///import com.squareup.picasso.Picasso;
 public class evaluacion extends AppCompatActivity implements OnMapReadyCallback {
 
@@ -47,12 +50,17 @@ public class evaluacion extends AppCompatActivity implements OnMapReadyCallback 
 
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
     private boolean musicaReproducida = false;
+    private  String Nombre,id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evaluacion);
-
+        AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
+        String tema = intent.get().getStringExtra("Tema");
+        Bundle recibeIngreso = getIntent().getExtras();
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
         // Inicializar el reproductor de música y cargar el archivo de música desde res/raw
         mediaPlayer = MediaPlayer.create(this, R.raw.preguntados);
 
@@ -282,7 +290,9 @@ public class evaluacion extends AppCompatActivity implements OnMapReadyCallback 
                 intent.putExtra("respuestaSeleccionada3", respuestaSeleccionada3);
                 intent.putExtra("respuestaSeleccionada4", respuestaSeleccionada4);
                 intent.putExtra("respuestaSeleccionada5", respuestaSeleccionada5);
-
+                intent.putExtra("Nombre",Nombre);
+                intent.putExtra("Idusu",id);
+                intent.putExtra("Tema",tema);
                 // Iniciar la siguiente actividad
                 startActivity(intent);
             }
