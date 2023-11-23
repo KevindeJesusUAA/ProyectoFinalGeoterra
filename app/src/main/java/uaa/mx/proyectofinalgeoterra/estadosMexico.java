@@ -1,36 +1,36 @@
 package uaa.mx.proyectofinalgeoterra;
 
-        import android.animation.ObjectAnimator;
-        import android.annotation.SuppressLint;
-        import android.graphics.Point;
-        import android.hardware.Sensor;
-        import android.hardware.SensorEvent;
-        import android.hardware.SensorEventListener;
-        import android.hardware.SensorManager;
-        import android.media.MediaPlayer;
-        import android.os.Bundle;
-        import android.util.DisplayMetrics;
-        import android.util.Log;
-        import android.view.Display;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.AdapterView;
-        import android.widget.ArrayAdapter;
-        import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.Spinner;
-        import android.widget.TextView;
-        import android.widget.Toast;
-        import androidx.appcompat.app.AppCompatActivity;
-        import androidx.constraintlayout.widget.ConstraintLayout;
+import android.animation.ObjectAnimator;
+import android.annotation.SuppressLint;
+import android.graphics.Point;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+import android.util.DisplayMetrics;
+import android.util.Log;
+import android.view.Display;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-        import java.util.Arrays;
-        import java.util.List;
+import java.util.Arrays;
+import java.util.List;
 
-        import android.animation.ObjectAnimator;
-        import android.view.animation.DecelerateInterpolator;
+import android.animation.ObjectAnimator;
+import android.view.animation.DecelerateInterpolator;
 
-        import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.AnimationDrawable;
 
 public class estadosMexico extends AppCompatActivity implements SensorEventListener {
     private ImageView flecha;
@@ -63,11 +63,24 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
     private ImageView animacionImageView, imageView;
     private AnimationDrawable animacionPelota;
 
+    private String Nombre,id;
+    private String para;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.estados_mexico);
+
+        //Bundle recibeIngreso = getIntent().getExtras(); //Vamos a recibir los datos del parametro, obteniendo el intento y llamamos al método de getExtras
+        // para obtener un objeto Bundle que contiene los datos
+
+        //para = recibeIngreso.getString("parametro"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        // y vamos a almacenarlos en una variable de tipo string
+
+
+        //Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        //id= recibeIngreso.getString("Idusu");
 
         Arrays.fill(itemUsado, false);
 
@@ -333,6 +346,11 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     animacionImageView.setVisibility(View.VISIBLE);
                     animacionImageView.setImageDrawable(animacionPelota);
                     animacionPelota.start();
+                }
+
+                if (selectedItemPosition == 9 && pelotaEnCentro) {
+                    // Mostrar un Toast de felicitaciones
+                    Toast.makeText(estadosMexico.this, "¡Felicidades!", Toast.LENGTH_SHORT).show();
                 }
             }
         }

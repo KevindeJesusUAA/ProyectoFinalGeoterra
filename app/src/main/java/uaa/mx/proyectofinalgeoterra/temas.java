@@ -70,11 +70,13 @@ public class temas extends AppCompatActivity {
                     "El título de este mapa es: “Carreteras y principales ciudades de México”.)\n" +
                     "geográficamente señalando el norte hacia arriba. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-iCV3qwx8Hn-4KgTRkk5pO.png)\n" +
                     "(TI,Rosa de los vientos) (TE,Es el símbolo que señala los cuatro puntos cardinales; Norte, Sur, Este y Oeste. En los mapas, la rosa de los vientos siempre orientará " +
-                    "geográficamente señalando el norte hacia arriba)(IM,https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Rosa_de_los_vientos.svg/2048px-Rosa_de_los_vientos.svg.png)\n" +
+                    "geográficamente señalando el norte hacia arriba)(IM,https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Rosa_de_los_vientos.svg/2048px-Rosa_de_los_vientos.svg.png)\n\n" +
+                    "(VI,https://www.youtube.com/watch?v=YC76paJ1_Zs&ab_channel=SmileandLearn-Espa%C3%B1ol)\n\n" +
                     "(TI,Simbología) (TE,Son figuras, líneas, puntos o colores que sirven para representar la información del mapa)(IM,https://catedu.github.io/cartografia-para-montaneros/img/Leyenda%20del%20mapa2.jpg)\n" +
                     "(TI,Escala) (TE,Representa la relación que existe entre las medidas en un plano o mapa y las medidas en la realidad. Las escalas se representan en dos tipos, numérica y gráfica.)\n" +
                     "(TE,En el mapa que estás analizando de “Carreteras y principales ciudades de México”, tiene los dos tipos de escala, la numérica es de 1: 15 463 917)(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-ZIF8boVWdt-sVYX1cYMjF.png)\n" +
-                    "(TI,Coordenadas Geográficas) (TE, Son líneas imaginarias verticales y horizontales. En el siguiente planisferio se pueden visualizar mejor. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-zKS0oz04Sm-eu971aO6HE.png)(AT,https://wordwall.net/es/resource/5253844/elementos-de-los-mapas)";
+                    "(TI,Coordenadas Geográficas) (TE, Son líneas imaginarias verticales y horizontales. En el siguiente planisferio se pueden visualizar mejor. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-zKS0oz04Sm-eu971aO6HE.png)(AT,https://wordwall.net/es/resource/5253844/elementos-de-los-mapas)\n";
+
             longitud=cadena.length();
             muestra();
         }
@@ -84,24 +86,36 @@ public class temas extends AppCompatActivity {
                     "(TE,Océanos Atlántico, Pacífico, G. Ártico y G. Antártico.)\n\n\n" +
                     "(TE,Mares)\n\n\n" +
                     "(TE,Mares principales: Mar del Caribe y Mar del Labrador) \n\n\n" +
-                    "(TE,RIOS: )\n\n" +
-                    "(TE,°Misisipi-Misuri y Colorado en el Norte\n" +
-                    "°Amazonas, 6.280 km.\n" +
-                    "°Orinoco.\n" +
-                    "°Paraná )\n" +
                     "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/mapa-fisico-america.jpg?w=887&ssl=1)" +
 
-                    "(TI,África) (TE,Este continente es el segundo continente más extenso y lo forma dos conjuntos América del Norte y América del Sur, bien diferenciados y unidos por América Central.)\n\n\n+ " +
+                    "(TI,África) (TE,África es el tercer continente más extenso, tras Asia y América. )\n\n\n+ " +
                     "(TE,Océanos)\n\n\n" +
-                    "(TE,Océanos Atlántico, Pacífico, G. Ártico y G. Antártico.)\n\n\n" +
+                    "(TE,Océanos Atlántico e Índico (este y oeste).)\n\n\n" +
                     "(TE,Mares)\n\n\n" +
-                    "(TE,Mares principales: Mar del Caribe y Mar del Labrador) \n\n\n" +
-                    "(TE,RIOS: )\n\n" +
-                    "(TE,°Misisipi-Misuri y Colorado en el Norte\n" +
-                    "°Amazonas, 6.280 km.\n" +
-                    "°Orinoco.\n" +
-                    "°Paraná )\n" +
-                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/africa.jpg?w=825&ssl=1)" +
+                    "(TE,Mares Mediterráneo y Rojo (al norte).) \n\n\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/africa.jpg?ssl=1)" +
+
+                    "(TI,Europa) (TE,Europa es el segundo continente más pequeño. )\n\n\n+ " +
+                    "(TE,Océanos)\n\n\n" +
+                    "(TE,Océano Glacial Ártico y al este el Océano Atlántico)\n\n\n" +
+                    "(TE,Mares)\n\n\n" +
+                    "(TE,Mares Blanco, de Barents, Noruega, Báltico, del Norte, Cantábrico, Mediterráneo, Tirreno, Adriático, Jónico, Mármara, Negro, Azov y Caspio) \n\n\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/mapa-fc3adsico-de-europa.jpg?resize=1024%2C723&ssl=1)" +
+
+                    "(TI,Asia) (TE,Asia es el continente más grande y poblado de la Tierra.)\n\n\n+ " +
+                    "(TE,Océanos)\n\n\n" +
+                    "(TE,Océano Índico, Océano Pacífico y Océano Glacial Ártico)\n\n\n" +
+                    "(TE,Mares)\n\n\n" +
+                    "(TE,Mar Rojo, Mar Arábigo, Mar de Japón, Mar de Bering y Mar de Aral.) \n\n\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/asia-fisica.jpg?w=961&ssl=1)" +
+
+                    "(TI,Oceanía) (TE,Oceanía es un continente insular de la Tierra constituido por la plataforma continental de Australia, las islas de Nueva Guinea, Nueva Zelanda " +
+                    "y los archipiélagos coralinos y volcánicos de Melanesia, Micronesia y Polinesia. )\n\n\n+ " +
+                    "(TE,Océanos)\n\n\n" +
+                    "(TE,El Océano Índico, Océano Pacífico, Océano Glaciar Antártico)\n\n\n" +
+                    "(TE,Mares)\n\n\n" +
+                    "(TE,Mares de Arafura, de Bismarck, de Coral, de Filipinas, de Halmahera, de Salomón, de Tasmania y de Timor) \n\n\n" +
+                    "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/asia-fisica.jpg?w=961&ssl=1)" +
 
 
                     "(VI,https://www.youtube.com/watch?v=Mad8refpcw4&ab_channel=Tipseducativosmx)";
