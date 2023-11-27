@@ -38,7 +38,7 @@ public class resultados extends AppCompatActivity {
         String respuestaSeleccionada4 = intent.getStringExtra("respuestaSeleccionada4");
         String respuestaSeleccionada5 = intent.getStringExtra("respuestaSeleccionada5");
         Bundle recibeIngreso = getIntent().getExtras();
-         tema = recibeIngreso.getString("Tema");
+        tema = recibeIngreso.getString("Tema");
         Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         id= recibeIngreso.getString("Idusu");
         System.out.println("kevin res: tema: "+tema+" Nombre:"+Nombre+" id: "+id);

@@ -81,7 +81,7 @@ public class resultadosdin extends AppCompatActivity {
                 TextView respuestaTextView = new TextView(this);
                 LinearLayout.LayoutParams respuestaParams = new LinearLayout.LayoutParams(
                         LinearLayout.LayoutParams.WRAP_CONTENT,
-                        150, // Alto en píxeles
+                        200, // Alto en píxeles
                         LinearLayout.LayoutParams.WRAP_CONTENT);
                 respuestaParams.setMargins(10, 10, 10, 10); // Márgenes (izquierda, arriba, derecha, abajo)
                 respuestaTextView.setLayoutParams(respuestaParams);
@@ -128,7 +128,7 @@ public class resultadosdin extends AppCompatActivity {
                 LinearLayout.LayoutParams.MATCH_PARENT);
         preguntaParams.setMargins(10, 10, 10, 10); // Márgenes (izquierda, arriba, derecha, abajo)
         promedio.setLayoutParams(preguntaParams);
-        promedio.setText("Promedio tot: "+(promediof));
+        promedio.setText("Promedio: "+(promediof));
         promedio.setTextColor(Color.parseColor("#020242"));
         promedio.setTextSize(25);
         promedio.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);

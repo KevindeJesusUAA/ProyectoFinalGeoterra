@@ -68,6 +68,8 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
     private String Nombre,id;
     private String para;
 
+    private int elementosSeleccionados = 0;
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -144,9 +146,13 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                if (!pelotaMovimiento) {
+                //if (!pelotaMovimiento) {
                     selectedItemPosition = position;
                     if (position != 0 && !itemUsado[position - 1]) {
+
+                        // Incrementa el contador de elementos seleccionados
+                        elementosSeleccionados++;
+
                         // Reinicia la posición de la pelota cuando seleccionas la segunda opción
                         reiniciarPosicionPelota();
                         flecha.setVisibility(View.VISIBLE);
@@ -160,12 +166,13 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     initSpinnerValues(selectedItemPosition);
                     // Ajusta la posición de la pelota según el elemento seleccionado
                     ajustarPosicionPelotaSegunElemento();
-                } else {
+                //}
+                /*else {
                     // Muestra un mensaje indicando que la pelota aún está en movimiento
                     Toast.makeText(estadosMexico.this, "La pelota aún está en movimiento", Toast.LENGTH_SHORT).show();
                     // Deselecciona el elemento actual para evitar que se seleccione mientras la pelota está en movimiento
                     spinner.setSelection(0);
-                }
+                }*/
             }
 
             @Override
@@ -354,7 +361,7 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     animacionPelota.start();
                 }
 
-                if (selectedItemPosition == 8 && pelotaEnCentro) {
+                /*if (selectedItemPosition == 9 && pelotaEnCentro) {
                     // Mostrar un Toast de felicitaciones
                     //Toast.makeText(estadosMexico.this, "¡Felicidades!", Toast.LENGTH_SHORT).show();
                     Toast.makeText(this, "Felicidades pasaste", Toast.LENGTH_SHORT).show();
@@ -367,6 +374,17 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     intent.putExtra("Nombre",Nombre);
                     intent.putExtra("Idusu",id);
                     intent.putExtra("Tema","5");
+                    startActivity(intent);
+                }*/
+                if (elementosSeleccionados == 9) {
+                    // Mostrar un Toast de felicitaciones
+                    Toast.makeText(estadosMexico.this, "¡Felicidades! Has completado todos los elementos", Toast.LENGTH_SHORT).show();
+
+                    // Iniciar la actividad de evaluación
+                    Intent intent = new Intent(estadosMexico.this, Evaluaciondim.class);
+                    intent.putExtra("Nombre", Nombre);
+                    intent.putExtra("Idusu", id);
+                    intent.putExtra("Tema", "5");
                     startActivity(intent);
                 }
             }

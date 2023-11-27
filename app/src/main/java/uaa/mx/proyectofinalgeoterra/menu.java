@@ -199,7 +199,7 @@ public class menu extends AppCompatActivity {
             ids.putString("Idusu", id);
 
             // Inicia la nueva actividad cuando se hace clic en el botón
-            Intent intent = new Intent(menu.this, reconocimiento.class);
+            Intent intent = new Intent(menu.this, ReconocimientoActivity.class);
 
             intent.putExtras(nom);
             intent.putExtras(ids);

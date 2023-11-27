@@ -14,14 +14,16 @@
         <TextView
             android:id="@+id/txtResultados"
             android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginTop="15dp"
-            android:inputType="text"
+            android:layout_height="wrap_content"
             android:text="RESULTADOS"
+            android:textSize="50dp"
+            android:textStyle="bold"
             android:textAlignment="center"
-            android:textColor="#020242"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/fondo_textview" />
+
 
         <TextView
             android:id="@+id/txtTitResul"

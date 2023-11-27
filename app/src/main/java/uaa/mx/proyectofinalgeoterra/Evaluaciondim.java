@@ -291,7 +291,7 @@ public class Evaluaciondim extends AppCompatActivity {
         btnEnviar.setTypeface(null, Typeface.BOLD); // Establecer estilo de texto a negrita
         btnEnviar.setBackgroundColor(Color.parseColor("#FF99FF")); // Establecer color de fondo
 
-        // Configurar el evento clic del botón (puedes personalizarlo según tus necesidades)
+        // Configurar el evento clic del botón
         btnEnviar.setOnClickListener(v -> {
              intent.set(new Intent(Evaluaciondim.this,resultadosdin.class));
             System.out.println("vaya");
