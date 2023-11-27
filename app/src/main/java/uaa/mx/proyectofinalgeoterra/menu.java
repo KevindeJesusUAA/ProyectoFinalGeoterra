@@ -190,7 +190,7 @@ public class menu extends AppCompatActivity {
             btnEstados.setBackgroundResource(R.drawable.t_estados);
             exito++;
         }
-        if(exito>=1){
+        if(exito>=5){
             Toast.makeText(this, "Felicidades Haz pasado el curso", Toast.LENGTH_SHORT).show();
 
             Bundle nom = new Bundle(); //Se crea una instancia de la clase Bundle

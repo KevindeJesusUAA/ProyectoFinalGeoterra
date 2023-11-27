@@ -354,7 +354,7 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     animacionPelota.start();
                 }
 
-                if (selectedItemPosition == 1 && pelotaEnCentro) {
+                if (selectedItemPosition == 8 && pelotaEnCentro) {
                     // Mostrar un Toast de felicitaciones
                     //Toast.makeText(estadosMexico.this, "¡Felicidades!", Toast.LENGTH_SHORT).show();
                     Toast.makeText(this, "Felicidades pasaste", Toast.LENGTH_SHORT).show();
