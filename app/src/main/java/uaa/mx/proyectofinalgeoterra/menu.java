@@ -7,6 +7,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -20,7 +21,7 @@ public class menu extends AppCompatActivity {
     private String parametro;
     private String Nombre,id;
     //En el método onCreate creamos la actividad y se configura
-
+    private int exito=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState); // Esta línea llama al método onCreate de la clase base (AppCompatActivity) para que realice sus tareas de inicialización
@@ -151,37 +152,58 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View v) { //Declaramos el método onClick
 
-                //Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
-                //parametro.putString("parametro", "pais");//Vamos a asignar el tipo de dato que queremos compartir,
-                // asignamos una llave o identificador para posteriormente recibirlo en la otra actividad
-                // y por último, agregamos el texto que queremos comparti
+                Bundle parametro = new Bundle(); //Se crea una instancia de la clase Bundle
+                parametro.putString("parametro", "2");//Vamos a asignar el tipo de dato que queremos compartir,
+                Bundle nom = new Bundle(); //Se crea una instancia de la clase Bundle
+                nom.putString("Nombre", Nombre);
+                Bundle ids = new Bundle(); //Se crea una instancia de la clase Bundle
+                ids.putString("Idusu", id);
 
                 // Inicia la nueva actividad cuando se hace clic en el botón
                 Intent intent = new Intent(menu.this, estadosMexico.class);
-                //intent.putExtras(parametro); //Ahora vamos a agregar los datos del ingreso que proporcionó el usuario, al objeto intent
-                startActivity(intent);
 
+                intent.putExtras(nom);
+                intent.putExtras(ids);
+                startActivity(intent);
             }
         });
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
         if( dbHelper.existeRegistro(""+id,"1")){
             btnMapas.setBackgroundResource(R.drawable.t_mapa);
+            exito++;
         }
         if ( dbHelper.existeRegistro(""+id,"2")) {
             System.out.println(":)");
             btnContinentes.setBackgroundResource(R.drawable.t_continentes);
+            exito++;
         }
         if ( dbHelper.existeRegistro(""+id,"3")) {
             btnPaises.setBackgroundResource(R.drawable.t_paisesc);
+            exito++;
         }
         if ( dbHelper.existeRegistro(""+id,"4")) {
             btnMaravillas.setBackgroundResource(R.drawable.t_maravillas);
+            exito++;
         }
         if ( dbHelper.existeRegistro(""+id,"5")) {
             btnEstados.setBackgroundResource(R.drawable.t_estados);
+            exito++;
         }
+        if(exito>=1){
+            Toast.makeText(this, "Felicidades Haz pasado el curso", Toast.LENGTH_SHORT).show();
 
+            Bundle nom = new Bundle(); //Se crea una instancia de la clase Bundle
+            nom.putString("Nombre", Nombre);
+            Bundle ids = new Bundle(); //Se crea una instancia de la clase Bundle
+            ids.putString("Idusu", id);
 
+            // Inicia la nueva actividad cuando se hace clic en el botón
+            Intent intent = new Intent(menu.this, reconocimiento.class);
+
+            intent.putExtras(nom);
+            intent.putExtras(ids);
+            startActivity(intent);
+        }
     }
 }

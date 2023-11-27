@@ -113,7 +113,7 @@ private  String Nombre,id;
 
                 intent.putExtra("Nombre",Nombre);
                 intent.putExtra("Idusu",id);
-                intent.putExtra("Tema",3);
+                intent.putExtra("Tema","4");
                 startActivity(intent);
 
             }

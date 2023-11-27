@@ -2,6 +2,7 @@ package uaa.mx.proyectofinalgeoterra;
 
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Point;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -54,6 +55,7 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
     private int selectedItemPosition = 0;
     private boolean[] itemUsado = new boolean[10];
     private boolean pelotaMovimiento = false;
+    private int correctas=0;
 
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
 
@@ -81,6 +83,9 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
 
         //Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         //id= recibeIngreso.getString("Idusu");
+        Bundle recibeIngreso = getIntent().getExtras();
+        Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
+        id= recibeIngreso.getString("Idusu");
 
         Arrays.fill(itemUsado, false);
 
@@ -313,6 +318,7 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
             } else {
                 // Muestra animacionImageView cuando la pelota se detiene
                 animacionImageView.setVisibility(View.VISIBLE);
+
             }
 
             if (Math.abs(posX + pelota.getWidth() / 2 - CENTRO_X) < 15 && Math.abs(posY + pelota.getHeight() / 2 - CENTRO_Y) < 15) {
@@ -348,9 +354,20 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     animacionPelota.start();
                 }
 
-                if (selectedItemPosition == 9 && pelotaEnCentro) {
+                if (selectedItemPosition == 1 && pelotaEnCentro) {
                     // Mostrar un Toast de felicitaciones
-                    Toast.makeText(estadosMexico.this, "¡Felicidades!", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(estadosMexico.this, "¡Felicidades!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "Felicidades pasaste", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(estadosMexico.this, Evaluaciondim.class);
+
+                    System.out.println("vaya");
+                    // Poner las respuestas seleccionadas como extras en el Intent
+
+                    intent.putExtra("Nombre",Nombre);
+                    intent.putExtra("Idusu",id);
+                    intent.putExtra("Tema","5");
+                    startActivity(intent);
                 }
             }
         }

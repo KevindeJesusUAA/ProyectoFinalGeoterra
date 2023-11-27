@@ -50,15 +50,16 @@ public class evaluacion extends AppCompatActivity implements OnMapReadyCallback 
 
     private MediaPlayer mediaPlayer; // Variable para el reproductor de música
     private boolean musicaReproducida = false;
-    private  String Nombre,id;
+    private  String Nombre,id,tema;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.evaluacion);
         AtomicReference<Intent> intent = new AtomicReference<>(getIntent());
-        String tema = intent.get().getStringExtra("Tema");
+
         Bundle recibeIngreso = getIntent().getExtras();
+        tema=recibeIngreso.getString("Tema");
         Nombre = recibeIngreso.getString("Nombre"); //Para recoger los datos, utilizamos la variable de bundle y con el metodo getstring obtenemos la clave de parametro
         id= recibeIngreso.getString("Idusu");
         // Inicializar el reproductor de música y cargar el archivo de música desde res/raw

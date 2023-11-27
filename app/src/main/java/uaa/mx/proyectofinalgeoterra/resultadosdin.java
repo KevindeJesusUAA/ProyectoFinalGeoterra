@@ -55,7 +55,7 @@ public class resultadosdin extends AppCompatActivity {
                 textLayout.setOrientation(LinearLayout.HORIZONTAL);
                 ImageView imageView = new ImageView(this);
                 imageView.setLayoutParams(new LinearLayout.LayoutParams(
-                        70, // Ancho en píxeles
+                        200, // Ancho en píxeles
                         200, // Alto en píxeles
                         LinearLayout.LayoutParams.WRAP_CONTENT));
                 if(vectorBooleanos[u]){
