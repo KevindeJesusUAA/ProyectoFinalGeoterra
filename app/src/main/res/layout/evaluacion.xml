@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_degradado">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="EVALUACION"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/fondo_textview" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/pregunta"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="20dp"
+            >
+            <TextView
+                android:id="@+id/txtpregunta1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 1"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <TextView
+                android:id="@+id/pregunta1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="¿En qué país se encuentra la maravilla del mundo de Chichen Itza?"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+            <Button
+                android:id="@+id/btnRespuesta1"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="a. Brasil"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta2"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="b. Estados Unidos"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00FF00"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btnRespuesta3"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="c. México"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0099FF"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta4"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="d. Perú"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9900"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtpregunta2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 2"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <TextView
+                android:id="@+id/pregunta2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="¿En qué país se encuentra la maravilla del mundo del Cristo Redentor?"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+            <Button
+                android:id="@+id/btnRespuesta5"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="a. Brasil"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta6"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="b. Estados Unidos"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00FF00"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btnRespuesta7"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="c. México"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0099FF"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta8"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="d. Perú"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9900"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtpregunta3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 3"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <TextView
+                android:id="@+id/pregunta3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="¿Cual es la maravilla del mundo en base a la siguiente imagen?"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+            <WebView
+                android:id="@+id/coliseo"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:id="@+id/btnRespuesta9"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="a. Cristo Redentor"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta10"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="b. La Gran Muralla"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00FF00"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btnRespuesta11"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="c. Petra"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0099FF"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta12"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="d. Coliseo"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9900"
+                android:layout_gravity="center"/>
+
+            <TextView
+                android:id="@+id/txtpregunta4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 4"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <TextView
+                android:id="@+id/pregunta4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="En base al video que se muestra, ¿puedes decirme cuál es la maravilla del mundo que nos están mostrando?"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+            <WebView
+                android:id="@+id/machu_pichu"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp" />
+            <Button
+                android:id="@+id/btnRespuesta13"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="a. Taj Mahal"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta14"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="b. Machu Pichu"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00FF00"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btnRespuesta15"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="c. Cristo Redentor"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0099FF"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta16"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="d. Chichen Itza"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9900"
+                android:layout_gravity="center"/>
+
+
+            <TextView
+                android:id="@+id/txtpregunta5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pregunta 5"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:layout_gravity="left"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <TextView
+                android:id="@+id/pregunta5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:text="En el siguiente mapa se muestra la ubicación de una de las maravillas del mundo, ¿cuál es la maravilla del mundo que se encuentra en esa localización?"
+                android:textSize="25sp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:textColor="#020242"/>
+
+            <fragment
+                android:id="@+id/map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="500dp" />
+
+            <Button
+                android:id="@+id/btnRespuesta17"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="a. Taj Mahal"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF0000"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta18"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="b. Machu Pichu"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#00FF00"
+                android:layout_gravity="center"/>
+            <Button
+                android:id="@+id/btnRespuesta19"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="c. Cristo Redentor"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#0099FF"
+                android:layout_gravity="center" />
+            <Button
+                android:id="@+id/btnRespuesta20"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="d. Chichen Itza"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#FF9900"
+                android:layout_gravity="center"/>
+
+            <Button
+                android:id="@+id/btnEnviar"
+                android:layout_width="253dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginStart="60dp"
+                android:layout_marginEnd="60dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#FF99FF"
+                android:text="Enviar"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

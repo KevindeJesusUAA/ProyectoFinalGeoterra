@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondo_degradado"
+        android:id="@+id/resul">
+        <TextView
+            android:id="@+id/txtResultados"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RESULTADOS"
+            android:textSize="50dp"
+            android:textStyle="bold"
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/fondo_textview" />
+
+
+        <TextView
+            android:id="@+id/txtTitResul"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="15dp"
+            android:inputType="text"
+            android:text="ESTOS SON TUS RESULTADOS"
+            android:textAlignment="center"
+            android:textColor="#020242"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+    </ScrollView>
+
+
+
+

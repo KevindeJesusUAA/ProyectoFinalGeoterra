@@ -1,5 +1,6 @@
 plugins {
     id("com.android.application")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -32,7 +33,7 @@ android {
 }
 
 dependencies {
-
+    implementation ("com.github.yukuku:ambilwarna:2.0.1")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
@@ -44,4 +45,8 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
+
+
+    implementation ("com.google.android.gms:play-services-maps:18.1.0")
+    implementation ("com.squareup.picasso:picasso:2.8")
 }

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondo_degradado"
+    android:orientation="vertical"
+    android:id="@+id/muestra">
+
+    <TextView
+        android:id="@+id/txtResultados"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RESULTADOS"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/fondo_textview" />
+
+    <TextView
+        android:id="@+id/txtTitResul"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="15dp"
+        android:inputType="text"
+        android:text="ESTOS SON TUS RESULTADOS"
+        android:textAlignment="center"
+        android:textColor="#020242"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenPregunta1"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/palomita" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtPregunta1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Pregunta 1"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRespuesta1"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="México"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenPregunta2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/palomita" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtPregunta2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Pregunta 2"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRespuesta2"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="París"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenPregunta3"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/tacha" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtPregunta3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Pregunta 3"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRespuesta3"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Chile"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenPregunta4"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/palomita" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtPregunta4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Pregunta 4"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRespuesta4"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="América"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imagenPregunta5"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:src="@drawable/palomita" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtPregunta5"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Pregunta 5"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/txtRespuesta5"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="Japón"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+
+            <TextView
+                android:id="@+id/promedio"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="promedio"
+                android:textAlignment="center"
+                android:textColor="#020242"
+                android:textSize="25dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"/>
+</LinearLayout>

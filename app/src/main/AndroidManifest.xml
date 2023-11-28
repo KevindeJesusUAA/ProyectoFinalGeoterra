@@ -7,6 +7,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
+
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
@@ -25,6 +26,14 @@
 
         <activity
             android:name=".menu"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".Evaluaciondim"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".resultadosdin"
             android:exported="true">
         </activity>
         <!-- Actividad de la clase paisMundo -->
@@ -57,5 +66,28 @@
             android:name=".memorama"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".evaluacion"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".estadosMexico"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".resultados"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".reconocimiento"
+            android:exported="true">
+        </activity>
+        <activity
+            android:name=".ReconocimientoActivity"
+            android:exported="true">
+        </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="${key2}" />
     </application>
 </manifest>
