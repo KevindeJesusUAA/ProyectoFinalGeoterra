@@ -1,6 +1,9 @@
 package uaa.mx.proyectofinalgeoterra;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
@@ -28,5 +31,15 @@ public class ReconocimientoActivity extends AppCompatActivity {
 
         CanvasView canvasView = findViewById(R.id.canvasView);
         canvasView.setData(fechaActual, nombre);
+
+        Button btnRegresar = findViewById(R.id.btnRegresar);
+        btnRegresar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
+
+
 }
