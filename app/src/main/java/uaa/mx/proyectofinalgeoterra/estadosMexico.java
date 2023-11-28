@@ -146,7 +146,7 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-                //if (!pelotaMovimiento) {
+                if (!pelotaMovimiento) {
                     selectedItemPosition = position;
                     if (position != 0 && !itemUsado[position - 1]) {
 
@@ -166,13 +166,12 @@ public class estadosMexico extends AppCompatActivity implements SensorEventListe
                     initSpinnerValues(selectedItemPosition);
                     // Ajusta la posición de la pelota según el elemento seleccionado
                     ajustarPosicionPelotaSegunElemento();
-                //}
-                /*else {
+                } else {
                     // Muestra un mensaje indicando que la pelota aún está en movimiento
                     Toast.makeText(estadosMexico.this, "La pelota aún está en movimiento", Toast.LENGTH_SHORT).show();
                     // Deselecciona el elemento actual para evitar que se seleccione mientras la pelota está en movimiento
                     spinner.setSelection(0);
-                }*/
+                }
             }
 
             @Override

@@ -71,7 +71,7 @@ public class temas extends AppCompatActivity {
                     "geográficamente señalando el norte hacia arriba. )(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-iCV3qwx8Hn-4KgTRkk5pO.png)\n" +
                     "(TI,Rosa de los vientos) (TE,Es el símbolo que señala los cuatro puntos cardinales; Norte, Sur, Este y Oeste. En los mapas, la rosa de los vientos siempre orientará " +
                     "geográficamente señalando el norte hacia arriba)(IM,https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Rosa_de_los_vientos.svg/2048px-Rosa_de_los_vientos.svg.png)\n\n" +
-                    "(VI,https://www.youtube.com/watch?v=YC76paJ1_Zs&ab_channel=SmileandLearn-Espa%C3%B1ol)\n\n" +
+                    "(VI,https://www.youtube.com/watch?v=Mad8refpcw4&ab_channel=Tipseducativosmx)\n\n" +
                     "(TI,Simbología) (TE,Son figuras, líneas, puntos o colores que sirven para representar la información del mapa)(IM,https://catedu.github.io/cartografia-para-montaneros/img/Leyenda%20del%20mapa2.jpg)\n" +
                     "(TI,Escala) (TE,Representa la relación que existe entre las medidas en un plano o mapa y las medidas en la realidad. Las escalas se representan en dos tipos, numérica y gráfica.)\n" +
                     "(TE,En el mapa que estás analizando de “Carreteras y principales ciudades de México”, tiene los dos tipos de escala, la numérica es de 1: 15 463 917)(IM,https://aprendeencasa.sep.gob.mx/multimedia/B64images/202110/B64-IMG-ZIF8boVWdt-sVYX1cYMjF.png)\n" +
@@ -87,7 +87,6 @@ public class temas extends AppCompatActivity {
                     "(TE,Mares)\n\n\n" +
                     "(TE,Mares principales: Mar del Caribe y Mar del Labrador) \n\n\n" +
                     "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/mapa-fisico-america.jpg?w=887&ssl=1)" +
-
                     "(TI,África) (TE,África es el tercer continente más extenso, tras Asia y América. )\n\n\n+ " +
                     "(TE,Océanos)\n\n\n" +
                     "(TE,Océanos Atlántico e Índico (este y oeste).)\n\n\n" +
@@ -118,7 +117,7 @@ public class temas extends AppCompatActivity {
                     "(IM,https://i0.wp.com/www3.gobiernodecanarias.org/medusa/ecoblog/msuaump/files/2012/11/asia-fisica.jpg?w=961&ssl=1)" +
 
 
-                    "(VI,https://www.youtube.com/watch?v=Mad8refpcw4&ab_channel=Tipseducativosmx)";
+                    "(VI,https://www.youtube.com/watch?v=YC76paJ1_Zs&ab_channel=SmileandLearn-Espa%C3%B1ol)";
             longitud = cadena.length();
             muestra();
         }
